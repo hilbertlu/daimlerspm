@@ -24,3 +24,5 @@ ext/**/*-testclasses.xml
 ext/**/*-webtestclasses.xml
 ext/**/jalo/
 
+ext/daimlerspm/daimlerspmstorefront/web/webroot/cmscockpit/
+ext/daimlerspm/daimlerspmstorefront/web/webroot/cockpit/
