@@ -12,7 +12,8 @@ else
 	cp lib/dbdriver/* hybris/bin/platform/lib/dbdriver/
 	cp -r config/installer/recipes/ installer/recipes/
 	cd installer
-	. installer/install.sh -r daimler
+	./install.sh -r daimler
+	cd ..
 fi
 
 cp config/develop/* hybris/config/
