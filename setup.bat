@@ -9,5 +9,7 @@ if exist hybris/config/local.properties (
 	call ant clean
 	cd ../../..
 	xcopy lib\dbdriver\*.* hybris\bin\platform\lib\dbdriver /s
+	xcopy config\installer\recipes\ installer/recipes\ /s
+	call installer/install.bat -r daimler
 )
 xcopy config\develop\*.* hybris\config\ /s
