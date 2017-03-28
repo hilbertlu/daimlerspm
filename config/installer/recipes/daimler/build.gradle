@@ -1,0 +1,106 @@
+def config = {
+	localProperties {
+		property 'recaptcha.publickey', ''
+		property 'recaptcha.privatekey', ''
+		property 'googleApiKey', ''
+		property 'website.powertools.http', 'http://localhost:9001/daimlerspmstorefront'
+		property 'website.powertools.https', 'https://localhost:9002/daimlerspmstorefront'
+    }
+
+    extensions {
+    	scanPath '${HYBRIS_BIN_DIR}/../../ext'
+
+        extName 'mcc'
+		extName 'commercesearchbackoffice'
+		extName 'b2bcommercebackoffice'
+  		extName 'solrfacetsearchbackoffice'
+		extName 'b2badmincockpit'
+
+		extName 'ycommercewebservices'
+		extName 'orderselfserviceaddon'
+
+		extName 'powertoolsstore'
+		extName 'solrserver'
+
+		extName 'acceleratorwebservicesaddon'
+		extName 'b2bacceleratoraddon'
+		extName 'commerceorgsamplesaddon'
+		extName 'b2bpunchoutaddon'
+		extName 'secureportaladdon'
+		extName 'savedorderformsoccaddon'
+		extName 'b2boccaddon'
+		extName 'accountsummaryaddon'
+		extName 'assistedservicestorefront'
+		extName 'captchaaddon'
+		
+		extName 'customerticketingaddon'
+		extName 'customersupportbackoffice'
+
+		extName 'rulebuilderbackoffice'
+		extName 'couponbackoffice'
+		extName 'droolsruleengineservices'
+		extName 'couponfacades'
+		extName 'promotionenginesamplesaddon'
+		
+		extName 'textfieldconfiguratortemplatebackoffice'
+		extName 'textfieldconfiguratortemplateaddon'
+		
+		extName 'assistedserviceatddtests'
+		extName 'promotionengineatddtests'
+		extName 'commercesearchatddtests'
+		extName 'textfieldconfiguratortemplateatddtests'
+
+		extName 'liveeditaddon'
+		extName 'cmswebservices'
+		extName 'smarteditwebservices'
+		extName 'permissionswebservices'
+  		extName 'smarteditaddon'
+		extName 'cmssmartedit'
+		extName 'previewwebservices'
+		extName 'cmssmarteditwebservices'
+
+		extName 'daimlerspmcockpits'
+		extName 'daimlerspminitialdata'
+		extName 'daimlerspmfulfilmentprocess'
+		extName 'daimlerspmstorefront'
+
+		extName 'hmc'
+    }
+}
+
+
+
+task setup << {
+    apply plugin: 'installer-platform-plugin'
+    apply plugin: 'installer-addon-plugin'
+    def pl = platform(config)
+    pl.setup()
+
+    pl.project.addons {
+        names "b2bacceleratoraddon,commerceorgaddon,commerceorgsamplesaddon,b2bpunchoutaddon,secureportaladdon,accountsummaryaddon,assistedservicestorefront,captchaaddon,customerticketingaddon,promotionenginesamplesaddon,textfieldconfiguratortemplateaddon,orderselfserviceaddon,liveeditaddon,smarteditaddon"
+        template "yacceleratorstorefront"
+        storeFronts "daimlerspmstorefront"
+        platform pl
+    }
+
+    pl.project.addons {
+        names "acceleratorwebservicesaddon,b2boccaddon,savedorderformsoccaddon"
+        template "ycommercewebservices"
+        storeFronts "ycommercewebservices"
+        platform pl
+    }
+}
+
+task initialize << {
+    apply plugin: 'installer-platform-plugin'
+    def pl = platform(config)
+    pl.build()
+    pl.initialize()
+}
+
+
+task start << {
+    apply plugin: 'installer-platform-plugin'
+    def pl = platform(config)
+    pl.start()
+}

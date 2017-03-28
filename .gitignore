@@ -1,5 +1,6 @@
 # hybris installation #
 hybris/*
+installer/*
 
 # auto generated files #
 ext/**/build.xml
