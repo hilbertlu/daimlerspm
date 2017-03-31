@@ -21,9 +21,22 @@
 <requires-extension name="assistedservicestorefront"/>
 <requires-extension name="accountsummaryaddon"/>
 <requires-extension name="secureportaladdon"/>
-<requires-extension name="daimlerspmb2bacceleratoraddon"/>
 <requires-extension name="commerceorgsamplesaddon"/>
 <requires-extension name="commerceorgaddon"/>
+<requires-extension name="daimlerspmb2bacceleratoraddon"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <requires-extension name="acceleratorstorefrontcommons"/>
