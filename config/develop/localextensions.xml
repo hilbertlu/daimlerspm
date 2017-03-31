@@ -12,9 +12,8 @@
     <extension name='powertoolsstore' />
     <extension name='solrserver' />
     <extension name='acceleratorwebservicesaddon' />
-    <extension name='b2bacceleratoraddon' />
+    <extension name='daimlerspmb2bacceleratoraddon' />
     <extension name='commerceorgsamplesaddon' />
-    <extension name='b2bpunchoutaddon' />
     <extension name='secureportaladdon' />
     <extension name='savedorderformsoccaddon' />
     <extension name='b2boccaddon' />

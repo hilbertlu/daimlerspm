@@ -23,9 +23,8 @@ def config = {
 		extName 'solrserver'
 
 		extName 'acceleratorwebservicesaddon'
-		extName 'b2bacceleratoraddon'
+		extName 'daimlerspmb2bacceleratoraddon'
 		extName 'commerceorgsamplesaddon'
-		extName 'b2bpunchoutaddon'
 		extName 'secureportaladdon'
 		extName 'savedorderformsoccaddon'
 		extName 'b2boccaddon'
@@ -77,7 +76,7 @@ task setup << {
     pl.setup()
 
     pl.project.addons {
-        names "b2bacceleratoraddon,commerceorgaddon,commerceorgsamplesaddon,b2bpunchoutaddon,secureportaladdon,accountsummaryaddon,assistedservicestorefront,captchaaddon,customerticketingaddon,promotionenginesamplesaddon,textfieldconfiguratortemplateaddon,orderselfserviceaddon,liveeditaddon,smarteditaddon"
+        names "daimlerspmb2bacceleratoraddon,commerceorgaddon,commerceorgsamplesaddon,secureportaladdon,accountsummaryaddon,assistedservicestorefront,captchaaddon,customerticketingaddon,promotionenginesamplesaddon,textfieldconfiguratortemplateaddon,orderselfserviceaddon,liveeditaddon,smarteditaddon"
         template "yacceleratorstorefront"
         storeFronts "daimlerspmstorefront"
         platform pl
