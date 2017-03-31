@@ -18018,6 +18018,276 @@ select[multiple].input-sm {
   margin-right: 3px;
   top: 4px;
 }
+.account-section .account-section-content .label-value {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+@media (min-width: 640px) {
+  .account-section .account-section-content .label-value {
+    margin-top: 10px;
+  }
+}
+.account-section .account-section-content .accountActions {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (max-width: 1024px) {
+  .account-section .account-section-content .accountActions {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+.account-section .account-section-content .accountActions-link {
+  clear: both;
+  text-align: right;
+  margin: 25px 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+@media (max-width: 1024px) {
+  .account-section .account-section-content .accountActions-link {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.account-section .account-section-content .accountActions-link .disable-link,
+.account-section .account-section-content .accountActions-link .enable-link {
+  margin: 0;
+}
+@media (max-width: 639px) {
+  .account-section .account-section-content .accountActions-link .disable-link,
+  .account-section .account-section-content .accountActions-link .enable-link {
+    margin: 8px 0;
+  }
+}
+.account-section .account-list .account-cards .card .glyphicon-ok {
+  font-size: 20px;
+  color: #929292;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+.account-section .account-list .account-cards .card .roles-wrapper {
+  margin: 8px 0 5px;
+}
+.account-section .account-list .account-cards .card .roles-wrapper > ul {
+  display: block;
+  width: 100%;
+}
+.account-section .account-list .account-cards .selected {
+  background-color: #f6e7d9;
+}
+.account-section .account-list .account-cards .selected .glyphicon-ok {
+  color: #ec7205;
+}
+.account-section .account-list .account-cards .selected:first-child {
+  border-left: 1px solid #cccccc;
+}
+.account-section .account-list .search-empty {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+}
+.account-section .account-list .remove-item,
+.account-section .account-list .edit-item {
+  color: #e5e5e5;
+}
+.account-section .account-header-done-btn {
+  margin-top: 15px;
+  padding-right: 30px;
+}
+@media (max-width: 1024px) {
+  .account-section .account-header-done-btn {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.account-status-inactive {
+  color: #929292;
+}
+.accountActions-bottom {
+  clear: both;
+  margin-top: 35px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+@media (max-width: 1024px) {
+  .accountActions-bottom {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 639px) {
+  .account-section .account-section-content #addNewPermissionForm form .confirm {
+    margin-bottom: 20px;
+  }
+  .account-section .account-section-content .accountActions-bottom .btn-default {
+    margin-top: 30px;
+  }
+  .account-section .account-section-content .accountActions-bottom .btn.confirm {
+    margin-bottom: 30px;
+  }
+  .account-section .pagination-bar.top + .account-list .account-cards {
+    margin-top: -1px;
+  }
+  .account-section .account-list .account-list-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .account-section .account-list .account-cards {
+    border: none;
+  }
+  .account-section .account-list .account-cards .card {
+    border-left: 0;
+    border-right: 0;
+  }
+  .account-section .account-list .account-cards .card:first-child {
+    margin: 0;
+  }
+  .account-section .account-list .account-cards .selected:first-child {
+    border-left: none;
+  }
+  .account-section .account-list .add-user-action-menu .add-user-action-buttons {
+    display: none;
+  }
+  .account-section .account-list .add-user-action-menu.open .add-user-action {
+    background-color: #47b6b1;
+    color: #ffffff;
+    padding: 16px 20px;
+    text-transform: uppercase;
+  }
+  .account-section .account-list .add-user-action-menu.open .add-user-action-buttons {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 120px;
+    top: 38px;
+    z-index: 9000;
+  }
+  .account-section #unittree {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.account-section .item-wrapper .framed .item-label,
+.account-section .item-wrapper .framed .item-value {
+  display: inline-block;
+}
+.account-section .item-wrapper .framed .item-label {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: none;
+  padding-left: 10px;
+  width: 48%;
+}
+.account-section .item-wrapper .framed .item-value {
+  font-weight: 600;
+  text-align: right;
+  padding-right: 10px;
+  width: 50%;
+}
+.account-section .item-wrapper .framed .item-group.total {
+  margin-top: 10px;
+  border-top: 1px solid #d3d3d3;
+}
+.account-section .item-wrapper .framed .item-group.total .item-label,
+.account-section .item-wrapper .framed .item-group.total .item-value {
+  padding-top: 20px;
+}
+.account-section .item-wrapper .framed .item-group.total .item-label {
+  font-weight: 400;
+}
+.account-section .account-summary-filter {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+@media (max-width: 640px) {
+  .account-section .account-summary-filter {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.account-section .section-headline {
+  font-size: 20px;
+  line-height: 30px;
+  padding: 20px 30px;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 30px;
+}
+@media (max-width: 640px) {
+  .account-section .section-headline {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.account-section .account-summary-detail {
+  padding-left: 0;
+  padding-right: 0;
+}
+.account-section .date-input {
+  position: relative;
+}
+.account-section .date-input > .glyphicon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -7px;
+  cursor: pointer;
+}
+.account-section #search {
+  margin-top: 8px;
+}
+.account-section .download-lnk {
+  font-weight: 600;
+}
+@media (min-width: 1024px) {
+  .account-section .item-wrapper .framed {
+    border: 1px solid #d3d3d3;
+    padding: 15px 20px 10px;
+  }
+}
+@media (max-width: 1023px) {
+  .account-section .item-wrapper .framed {
+    display: block;
+    border-top: 3px solid #d3d3d3;
+    margin: 20px -20px 0;
+    padding: 30px 10px 0;
+  }
+}
+@media (max-width: 639px) {
+  .account-section .section-headline,
+  .account-section .account-summary-table {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .account-section .section-headline {
+    padding-left: 20px;
+  }
+  .account-section .account-summary-filter {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .account-section .accountSummaryUnitBackBtn {
+    margin-top: 30px;
+  }
+  .account-section .cancel-panel {
+    padding-right: 10px;
+  }
+}
+#registerForm .form_field_error {
+  width: auto;
+  float: none;
+  padding-right: 0;
+  clear: both;
+}
+.js-recaptcha-captchaaddon {
+  margin: 20px 0;
+}
+#g-recaptcha_incorrect {
+  color: red;
+  display: none;
+}
 .replenishment-cancel-button span {
   color: #ec7205;
   font-size: 21px;
@@ -18558,314 +18828,4 @@ select[multiple].input-sm {
   .advancedSearch .create-order-form .create-order-form-button .btn {
     width: 100%;
   }
-}
-.account-section .account-section-content .label-value {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-@media (min-width: 640px) {
-  .account-section .account-section-content .label-value {
-    margin-top: 10px;
-  }
-}
-.account-section .account-section-content .accountActions {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media (max-width: 1024px) {
-  .account-section .account-section-content .accountActions {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-.account-section .account-section-content .accountActions-link {
-  clear: both;
-  text-align: right;
-  margin: 25px 0;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-@media (max-width: 1024px) {
-  .account-section .account-section-content .accountActions-link {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-.account-section .account-section-content .accountActions-link .disable-link,
-.account-section .account-section-content .accountActions-link .enable-link {
-  margin: 0;
-}
-@media (max-width: 639px) {
-  .account-section .account-section-content .accountActions-link .disable-link,
-  .account-section .account-section-content .accountActions-link .enable-link {
-    margin: 8px 0;
-  }
-}
-.account-section .account-list .account-cards .card .glyphicon-ok {
-  font-size: 20px;
-  color: #929292;
-  padding-right: 15px;
-  padding-top: 15px;
-}
-.account-section .account-list .account-cards .card .roles-wrapper {
-  margin: 8px 0 5px;
-}
-.account-section .account-list .account-cards .card .roles-wrapper > ul {
-  display: block;
-  width: 100%;
-}
-.account-section .account-list .account-cards .selected {
-  background-color: #f6e7d9;
-}
-.account-section .account-list .account-cards .selected .glyphicon-ok {
-  color: #ec7205;
-}
-.account-section .account-list .account-cards .selected:first-child {
-  border-left: 1px solid #cccccc;
-}
-.account-section .account-list .search-empty {
-  margin: 0;
-  padding: 20px;
-  border-bottom: 1px solid #cccccc;
-  border-right: 1px solid #cccccc;
-}
-.account-section .account-list .remove-item,
-.account-section .account-list .edit-item {
-  color: #e5e5e5;
-}
-.account-section .account-header-done-btn {
-  margin-top: 15px;
-  padding-right: 30px;
-}
-@media (max-width: 1024px) {
-  .account-section .account-header-done-btn {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-.account-status-inactive {
-  color: #929292;
-}
-.accountActions-bottom {
-  clear: both;
-  margin-top: 35px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-@media (max-width: 1024px) {
-  .accountActions-bottom {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-@media (max-width: 639px) {
-  .account-section .account-section-content #addNewPermissionForm form .confirm {
-    margin-bottom: 20px;
-  }
-  .account-section .account-section-content .accountActions-bottom .btn-default {
-    margin-top: 30px;
-  }
-  .account-section .account-section-content .accountActions-bottom .btn.confirm {
-    margin-bottom: 30px;
-  }
-  .account-section .pagination-bar.top + .account-list .account-cards {
-    margin-top: -1px;
-  }
-  .account-section .account-list .account-list-header {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .account-section .account-list .account-cards {
-    border: none;
-  }
-  .account-section .account-list .account-cards .card {
-    border-left: 0;
-    border-right: 0;
-  }
-  .account-section .account-list .account-cards .card:first-child {
-    margin: 0;
-  }
-  .account-section .account-list .account-cards .selected:first-child {
-    border-left: none;
-  }
-  .account-section .account-list .add-user-action-menu .add-user-action-buttons {
-    display: none;
-  }
-  .account-section .account-list .add-user-action-menu.open .add-user-action {
-    background-color: #47b6b1;
-    color: #ffffff;
-    padding: 16px 20px;
-    text-transform: uppercase;
-  }
-  .account-section .account-list .add-user-action-menu.open .add-user-action-buttons {
-    display: block;
-    position: absolute;
-    right: 0;
-    width: 120px;
-    top: 38px;
-    z-index: 9000;
-  }
-  .account-section #unittree {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-.inspect-logo a {
-  cursor: default;
-}
-.punchout-header.main-header .site-logo {
-  padding: 5px 0 0;
-}
-.punchout-header.main-header .site-logo img {
-  max-height: 35px;
-}
-.branding-mobile {
-  padding: 5px 0;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-@media (max-width: 1024px) {
-  .branding-mobile {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-.branding-mobile img {
-  max-height: 35px;
-}
-.row-basket-bottom-punchout {
-  margin-top: 20px;
-}
-@media (max-width: 639px) {
-  .cancelButton {
-    margin-bottom: 10px;
-  }
-}
-.btn-continue-shopping {
-  margin-bottom: 10px;
-}
-@media (max-width: 1399px) {
-  #lang-form {
-    float: none;
-    margin: 0 auto;
-  }
-}
-.account-section .item-wrapper .framed .item-label,
-.account-section .item-wrapper .framed .item-value {
-  display: inline-block;
-}
-.account-section .item-wrapper .framed .item-label {
-  font-size: 18px;
-  color: #ffffff;
-  text-transform: none;
-  padding-left: 10px;
-  width: 48%;
-}
-.account-section .item-wrapper .framed .item-value {
-  font-weight: 600;
-  text-align: right;
-  padding-right: 10px;
-  width: 50%;
-}
-.account-section .item-wrapper .framed .item-group.total {
-  margin-top: 10px;
-  border-top: 1px solid #d3d3d3;
-}
-.account-section .item-wrapper .framed .item-group.total .item-label,
-.account-section .item-wrapper .framed .item-group.total .item-value {
-  padding-top: 20px;
-}
-.account-section .item-wrapper .framed .item-group.total .item-label {
-  font-weight: 400;
-}
-.account-section .account-summary-filter {
-  padding-right: 30px;
-  padding-left: 30px;
-}
-@media (max-width: 640px) {
-  .account-section .account-summary-filter {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-}
-.account-section .section-headline {
-  font-size: 20px;
-  line-height: 30px;
-  padding: 20px 30px;
-  border-bottom: 1px solid #cccccc;
-  margin-bottom: 30px;
-}
-@media (max-width: 640px) {
-  .account-section .section-headline {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-}
-.account-section .account-summary-detail {
-  padding-left: 0;
-  padding-right: 0;
-}
-.account-section .date-input {
-  position: relative;
-}
-.account-section .date-input > .glyphicon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  margin-top: -7px;
-  cursor: pointer;
-}
-.account-section #search {
-  margin-top: 8px;
-}
-.account-section .download-lnk {
-  font-weight: 600;
-}
-@media (min-width: 1024px) {
-  .account-section .item-wrapper .framed {
-    border: 1px solid #d3d3d3;
-    padding: 15px 20px 10px;
-  }
-}
-@media (max-width: 1023px) {
-  .account-section .item-wrapper .framed {
-    display: block;
-    border-top: 3px solid #d3d3d3;
-    margin: 20px -20px 0;
-    padding: 30px 10px 0;
-  }
-}
-@media (max-width: 639px) {
-  .account-section .section-headline,
-  .account-section .account-summary-table {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-  .account-section .section-headline {
-    padding-left: 20px;
-  }
-  .account-section .account-summary-filter {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .account-section .accountSummaryUnitBackBtn {
-    margin-top: 30px;
-  }
-  .account-section .cancel-panel {
-    padding-right: 10px;
-  }
-}
-#registerForm .form_field_error {
-  width: auto;
-  float: none;
-  padding-right: 0;
-  clear: both;
-}
-.js-recaptcha-captchaaddon {
-  margin: 20px 0;
-}
-#g-recaptcha_incorrect {
-  color: red;
-  display: none;
 }
