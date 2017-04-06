@@ -2,7 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="action" tagdir="/WEB-INF/tags/responsive/action" %>
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
-<%@ taglib prefix="b2b-product" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/product" %>
+<%@ taglib prefix="b2b-product" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/product" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 
 <c:choose> 
