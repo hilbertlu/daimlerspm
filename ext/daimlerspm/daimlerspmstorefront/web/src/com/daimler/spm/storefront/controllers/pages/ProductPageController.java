@@ -39,7 +39,6 @@ import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.product.ProductService;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import de.hybris.platform.util.Config;
-import com.daimler.spm.storefront.controllers.ControllerConstants;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -69,6 +68,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.daimler.spm.facades.product.data.StockLevelData;
+import com.daimler.spm.facades.products.DaimlerspmProductFacade;
+import com.daimler.spm.storefront.controllers.ControllerConstants;
 import com.google.common.collect.Maps;
 
 
@@ -118,10 +120,13 @@ public class ProductPageController extends AbstractPageController
 	@Resource(name = "futureStockFacade")
 	private FutureStockFacade futureStockFacade;
 
+	@Resource(name = "daimlerWHFacades")
+	private DaimlerspmProductFacade daimlerWHFacades;
+
 	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
 	public String productDetail(@PathVariable("productCode") final String productCode, final Model model,
-			final HttpServletRequest request, final HttpServletResponse response)
-					throws CMSItemNotFoundException, UnsupportedEncodingException
+			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException,
+			UnsupportedEncodingException
 	{
 		final List<ProductOption> extraOptions = Arrays.asList(ProductOption.VARIANT_MATRIX_BASE, ProductOption.VARIANT_MATRIX_URL,
 				ProductOption.VARIANT_MATRIX_MEDIA);
@@ -201,10 +206,10 @@ public class ProductPageController extends AbstractPageController
 			final HttpServletRequest request)
 	{
 		final ProductModel productModel = productService.getProductForCode(productCode);
-		final ProductData productData = productFacade.getProductForCodeAndOptions(productCode,
-				Arrays.asList(ProductOption.BASIC, ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION,
-						ProductOption.CATEGORIES, ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW,
-						ProductOption.VARIANT_FULL, ProductOption.DELIVERY_MODE_AVAILABILITY));
+		final ProductData productData = productFacade.getProductForCodeAndOptions(productCode, Arrays.asList(ProductOption.BASIC,
+				ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION, ProductOption.CATEGORIES,
+				ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW, ProductOption.VARIANT_FULL,
+				ProductOption.DELIVERY_MODE_AVAILABILITY));
 
 		sortVariantOptionData(productData);
 		populateProductData(productData, model);
@@ -217,7 +222,7 @@ public class ProductPageController extends AbstractPageController
 	{ RequestMethod.GET, RequestMethod.POST })
 	public String postReview(@PathVariable final String productCode, final ReviewForm form, final BindingResult result,
 			final Model model, final HttpServletRequest request, final RedirectAttributes redirectAttrs)
-					throws CMSItemNotFoundException
+			throws CMSItemNotFoundException
 	{
 		getReviewValidator().validate(form, result);
 
@@ -243,8 +248,7 @@ public class ProductPageController extends AbstractPageController
 		return REDIRECT_PREFIX + productDataUrlResolver.resolve(productData);
 	}
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/reviewhtml/"
-			+ REVIEWS_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/reviewhtml/" + REVIEWS_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
 	public String reviewHtml(@PathVariable("productCode") final String productCode,
 			@PathVariable("numberOfReviews") final String numberOfReviews, final Model model, final HttpServletRequest request)
 	{
@@ -259,8 +263,8 @@ public class ProductPageController extends AbstractPageController
 		}
 		else
 		{
-			final int reviewCount = Math.min(Integer.parseInt(numberOfReviews),
-					productData.getNumberOfReviews() == null ? 0 : productData.getNumberOfReviews().intValue());
+			final int reviewCount = Math.min(Integer.parseInt(numberOfReviews), productData.getNumberOfReviews() == null ? 0
+					: productData.getNumberOfReviews().intValue());
 			reviews = productFacade.getReviews(productCode, Integer.valueOf(reviewCount));
 		}
 
@@ -294,7 +298,7 @@ public class ProductPageController extends AbstractPageController
 	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/writeReview", method = RequestMethod.POST)
 	public String writeReview(@PathVariable final String productCode, final ReviewForm form, final BindingResult result,
 			final Model model, final HttpServletRequest request, final RedirectAttributes redirectAttrs)
-					throws CMSItemNotFoundException
+			throws CMSItemNotFoundException
 	{
 		getReviewValidator().validate(form, result);
 
@@ -359,8 +363,8 @@ public class ProductPageController extends AbstractPageController
 		Map<String, Object> result = new HashMap<>();
 		if (futureStockEnabled && CollectionUtils.isNotEmpty(skus) && StringUtils.isNotBlank(productCode))
 		{
-			final Map<String, List<FutureStockData>> futureStockData = futureStockFacade
-					.getFutureAvailabilityForSelectedVariants(productCode, skus);
+			final Map<String, List<FutureStockData>> futureStockData = futureStockFacade.getFutureAvailabilityForSelectedVariants(
+					productCode, skus);
 
 			if (futureStockData == null)
 			{
@@ -409,10 +413,11 @@ public class ProductPageController extends AbstractPageController
 		options.addAll(extraOptions);
 
 		final ProductData productData = productFacade.getProductForCodeAndOptions(productCode, options);
-
+		final List<StockLevelData> stockDatas = daimlerWHFacades.findStockLevelsForProduct(productModel);
 		sortVariantOptionData(productData);
 		storeCmsPageInModel(model, getPageForProduct(productCode));
 		populateProductData(productData, model);
+		model.addAttribute("stockDatas", stockDatas);
 		model.addAttribute(WebConstants.BREADCRUMBS_KEY, productBreadcrumbBuilder.getBreadcrumbs(productCode));
 
 		if (CollectionUtils.isNotEmpty(productData.getVariantMatrix()))

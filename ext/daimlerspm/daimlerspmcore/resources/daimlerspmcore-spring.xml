@@ -479,6 +479,16 @@
 		<property name="resource" value="classpath:/daimlerspmcore/processes/quote/quote-seller-approval-process.xml"/>
 	</bean>
 
+	<!-- Added for US:DSPM-11 related about Warehouse Start :::: -->
+	<bean id="daimlerspmWarehouseDao" class="com.daimler.spm.core.products.dao.impl.DaimlerspmWarehouseDaoImpl"  parent="abstractItemDao" >
+	</bean>
+	<alias name="daimlerspmWarehosueService" alias="daimlerspmWarehouseService"/>
+	<bean id="daimlerspmWarehosueService" class="com.daimler.spm.core.products.service.impl.DaimlerspmWarehouseServiceImpl">
+		<property name="warehoueDao" ref="daimlerspmWarehouseDao"></property>
+	</bean>
+	
+	<!-- Added for US:DSPM-11 related about Warehouse End :::: -->
+
 	<import resource="/daimlerspmcore/processes/quote/quote-buyer-process-spring.xml"/>
 	<import resource="/daimlerspmcore/processes/quote/quote-salesrep-process-spring.xml"/>
 	<import resource="/daimlerspmcore/processes/quote/quote-seller-approval-process-spring.xml"/>

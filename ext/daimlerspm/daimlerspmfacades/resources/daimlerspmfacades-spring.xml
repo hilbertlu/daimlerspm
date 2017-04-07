@@ -185,4 +185,12 @@
 	</bean>
 
 	<bean id="genderData" class="com.daimler.spm.facades.product.data.GenderData" scope="prototype"/>
+	
+	  <!-- Warehouse Populator -->
+	 <bean id="daimlerspmWarehousePopulator" class="com.daimler.spm.facades.populators.DaimlerspmWarehousePopulator"></bean> 
+	  
+    <bean id="daimlerspmStockLevelPopulator" class="com.daimler.spm.facades.populators.DaimlerspmStockLevelPopulator">
+    </bean>
+    <alias name="daimlerspmWarehouseFacades" alias="daimlerWHFacades"/>
+    <bean id="daimlerspmWarehouseFacades" class="com.daimler.spm.facades.products.impl.DaimlerspmProductFacadesImpl"></bean>
 </beans>
