@@ -14,7 +14,7 @@ package com.daimler.spm.b2bacceleratoraddon.controllers;
  */
 public interface Daimlerspmb2bacceleratoraddonControllerConstants
 {
-	static final String ADDON_PREFIX = "addon:/b2bacceleratoraddon/";
+	static final String ADDON_PREFIX = "addon:/daimlerspmb2bacceleratoraddon/";
 	static final String STOREFRONT_PREFIX = "/";
 
 	interface Views

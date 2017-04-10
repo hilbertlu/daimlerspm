@@ -52,18 +52,18 @@
 	
 	<!-- APPROVAL PROCESS -->
 	<bean id="b2bAccApprovalProcessDefinitionResource" class="de.hybris.platform.processengine.definition.ProcessDefinitionResource">
-		<property name="resource" value="classpath:/b2bacceleratoraddon/processes/b2bAccOrderApproval.xml"/>
+		<property name="resource" value="classpath:/daimlerspmb2bacceleratoraddon/processes/b2bAccOrderApproval.xml"/>
 	</bean>
 	
 	<bean id="orderApprovalRejectionEmailProcessDefinitionResource"
           class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
-        <property name="resource" value="classpath:/b2bacceleratoraddon/processes/orderApprovalRejectionEmailProcess.xml"/>
+        <property name="resource" value="classpath:/daimlerspmb2bacceleratoraddon/processes/orderApprovalRejectionEmailProcess.xml"/>
     </bean>
 	
 	<bean id="orderPendingApprovalEmailProcessDefinitionResource"
           class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
         <property name="resource"
-                  value="classpath:/b2bacceleratoraddon/processes/orderPendingApprovalEmailProcess.xml"/>
+                  value="classpath:/daimlerspmb2bacceleratoraddon/processes/orderPendingApprovalEmailProcess.xml"/>
     </bean>
 	
 	<bean id="b2b-orderCPendingApprovalEventListener"
@@ -123,7 +123,7 @@
     <!-- REPLENISHMENT PROCESSES -->
     
 	<bean id="replenishmentOrderPlacedProcessDefinitionResource" class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
-        <property name="resource" value="classpath:/b2bacceleratoraddon/processes/replenishmentOrderPlacedEmailProcess.xml"/>
+        <property name="resource" value="classpath:/daimlerspmb2bacceleratoraddon/processes/replenishmentOrderPlacedEmailProcess.xml"/>
     </bean>
     
 	<bean id="b2b-replenishmentOrderPlacedEventListener"
@@ -139,11 +139,11 @@
 	</bean>
     
     <bean id="replenishmentOrderProcessDefinitionResource" class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
-        <property name="resource" value="classpath:/b2bacceleratoraddon/processes/replenishmentOrderProcess.xml"/>
+        <property name="resource" value="classpath:/daimlerspmb2bacceleratoraddon/processes/replenishmentOrderProcess.xml"/>
 	</bean>
 	
 	<bean id="replenishmentOrderConfirmationEmailProcessDefinitionResource" class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
-        <property name="resource" value="classpath:/b2bacceleratoraddon/processes/replenishmentOrderConfirmationEmailProcess.xml"/>
+        <property name="resource" value="classpath:/daimlerspmb2bacceleratoraddon/processes/replenishmentOrderConfirmationEmailProcess.xml"/>
     </bean>
 
 	<!-- Process actions-->
