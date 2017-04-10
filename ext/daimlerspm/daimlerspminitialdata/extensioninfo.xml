@@ -13,6 +13,8 @@
 	<extension abstractclassprefix="Generated" classprefix="DaimlerspmInitialData" name="daimlerspminitialdata">
 
 		<requires-extension name="daimlerspmcore"/>
+		
+		<requires-extension name="powertoolsstore"/>
 
 		<coremodule generated="true" manager="de.hybris.platform.jalo.extension.GenericManager" packageroot="com.daimler.spm.initialdata"/>
 

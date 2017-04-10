@@ -11,10 +11,10 @@
 # ImpEx for Importing CMS Content
 
 # Macros / Replacement Parameter definitions
-$contentCatalog=__CONTENT_CATALOG_NAME__
-$contentCatalogName=__CONTENT_CATALOG_FULL_NAME__
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
+$contentCatalog=powertoolsContentCatalog
+$contentCatalogName=Powertools Content Catalog
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
 
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
@@ -23,16 +23,19 @@ $image=image(code, $contentCV);
 $media=media(code, $contentCV);
 $page=page(uid, $contentCV);
 $contentPage=contentPage(uid, $contentCV);
-$siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/contentCatalogs/$contentCatalog
-$productResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/productCatalogs/$productCatalog
-$jarResourceCms=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/cockpits/cmscockpit
+$siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$productResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/sampledata/productCatalogs/$productCatalog
+$jarResourceCms=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/sampledata/cockpits/cmscockpit
 
 
 # CMS Site Settings
 UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV)
 
 # Site Logo
-INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;folder(qualifier)[default='images']
+#INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;folder(qualifier)[default='images']
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/svg+xml'];altText;folder(qualifier)[default='images']
+#;;/images/theme/logo_hybris_b2b_responsive.svg;logo_hybris_b2b_responsive.svg;$siteResource/images/theme/logo_hybris_b2b_responsive.svg;image/svg+xml;hybris Accelerator;
+;;/images/theme/img-logo-daimler-svg.svg;img-logo-daimler-svg.svg;$siteResource/images/theme/img-logo-daimler-svg.svg;image/svg+xml;Daimler Accelerator;
 
 # Site Logo Component
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
