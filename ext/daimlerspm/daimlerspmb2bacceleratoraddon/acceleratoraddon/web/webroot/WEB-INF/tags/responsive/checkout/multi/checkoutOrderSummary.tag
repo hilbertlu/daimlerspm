@@ -10,7 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 <%@ taglib prefix="multi-checkout" tagdir="/WEB-INF/tags/responsive/checkout/multi" %>
-<%@ taglib prefix="b2b-multi-checkout" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/checkout/multi" %>
+<%@ taglib prefix="b2b-multi-checkout" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/checkout/multi" %>
 <%@ taglib prefix="order" tagdir="/WEB-INF/tags/responsive/order" %>
 
 <spring:url value="/checkout/multi/summary/placeOrder" var="placeOrderUrl"/>

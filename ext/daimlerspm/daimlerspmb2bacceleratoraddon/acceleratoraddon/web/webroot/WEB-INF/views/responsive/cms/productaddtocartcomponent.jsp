@@ -53,8 +53,8 @@ padding: 8px 10px;
 	<div>
 		<table class="warehouse_table">
     		<tr>
-			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="product.volumePrices.column.qa"/></th>
-			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="product.volumePrices.column.price"/></th>
+			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="pdp.product.stockinfo.warehouse"/></th>
+			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="pdp.product.stockinfo.stocklevel"/></th>
 			</tr>
 			<tbody>
 			<c:forEach var="stock" items="${stockDatas}">
