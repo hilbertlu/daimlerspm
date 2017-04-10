@@ -2,9 +2,31 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="action" tagdir="/WEB-INF/tags/responsive/action" %>
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
-<%@ taglib prefix="b2b-product" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/product" %>
+<%@ taglib prefix="b2b-product" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/product" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 
+<<style>
+<!--
+
+-->
+.warehouse_table{
+margin-top: 20px;
+ position:relative;
+}
+.warehouse_table_header{
+border:1px solid black;
+background-color: #142939;
+color: #7f919e;
+text-transform: uppercase;
+text-align:left;
+vertical-align:center;
+padding: 8px 10px;
+}
+.warehouse_table_data{
+text-align:left
+padding: 8px 10px;
+}
+</style>
 <c:choose> 
   <c:when test="${product.stock.stockLevelStatus.code eq 'inStock' and empty product.stock.stockLevel}">
     <c:set var="maxQty" value="FORCE_IN_STOCK"/>
@@ -28,8 +50,26 @@
 			</span>
         </div>
     </c:if>
-
+	<div>
+		<table class="warehouse_table">
+    		<tr>
+			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="product.volumePrices.column.qa"/></th>
+			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="product.volumePrices.column.price"/></th>
+			</tr>
+			<tbody>
+			<c:forEach var="stock" items="${stockDatas}">
+				<tr>
+					<td class="warehouse_table_data">
+						${stock.warehouse.name }
+					</td>
+					<td class="warehouse_table_data">${stock.available}</td>
+				</tr>
+			</c:forEach>
+			</tbody>
+		</table>
+	</div>
     <div class="stock-wrapper clearfix">
+    	
         <ycommerce:testId code="productDetails_productInStock_label">
             <b2b-product:productStockThreshold product="${product}"/>
         </ycommerce:testId>

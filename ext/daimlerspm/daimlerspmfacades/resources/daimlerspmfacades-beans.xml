@@ -19,4 +19,31 @@
 		<property name="code" type="String"/>
 		<property name="name" type="String"/>
 	</bean>
+	
+	<bean class="com.daimler.spm.facades.product.data.WarehouseData">
+		<property name="code" type="String"/>
+		<property name="name" type="String"/>
+		<property name="isDefault" type="Boolean"/>
+		<property name="url" type="String"/>
+		<property name="consignments"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.ConsignmentData>"/>
+		<property name="pointsOfServices"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.storelocator.data.PointOfServiceData>"/>
+		<property name="priority" type="Integer"/>
+		<property name="deliveryModes"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.DeliveryModeData>"/>
+	</bean>
+	
+	<bean class="com.daimler.spm.facades.product.data.StockLevelData">
+		<property name="productCode" type="String"></property>
+		<property name="available" type="long"></property>
+		<property name="bin" type="java.lang.String"/>
+		<property name="initialQuantityOnHand" type="java.lang.Integer"/>
+		<property name="releaseDate" type="java.util.Date"/>
+		<property name="inStockStatus" type="de.hybris.platform.basecommerce.enums.InStockStatus"/>
+		<property name="warehouse" type="com.daimler.spm.facades.product.data.WarehouseData"></property>
+	</bean>
+
+	
+
 </beans>
