@@ -2,7 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="theme" tagdir="/WEB-INF/tags/shared/theme" %>
 <%@ taglib prefix="action" tagdir="/WEB-INF/tags/responsive/action" %>
-
+ssss
 <c:set var="isForceInStock" value="${product.stock.stockLevelStatus.code eq 'inStock' and empty product.stock.stockLevel}"/>
 <c:choose> 
   <c:when test="${isForceInStock}">
