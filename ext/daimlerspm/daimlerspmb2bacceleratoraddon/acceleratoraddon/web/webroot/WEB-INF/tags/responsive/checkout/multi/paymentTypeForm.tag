@@ -7,8 +7,10 @@
     <div class="step-body-form">
         <div class="radiobuttons_paymentselection">
             <c:forEach items="${paymentTypes}" var="paymentType">
+            	<c:if test="${paymentType.code eq 'ACCOUNT' }">
                 <form:radiobutton path="paymentType" id="PaymentTypeSelection_${paymentType.code}" value="${paymentType.code}" label="${paymentType.displayName}" />
                 <br>
+                </c:if>
             </c:forEach>
         </div>
 

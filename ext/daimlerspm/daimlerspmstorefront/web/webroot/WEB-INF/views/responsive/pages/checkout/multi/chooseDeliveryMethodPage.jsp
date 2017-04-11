@@ -19,7 +19,7 @@
 		<multi-checkout:checkoutSteps checkoutSteps="${checkoutSteps}" progressBarId="${progressBarId}">
 			<jsp:body>
 				<ycommerce:testId code="checkoutStepTwo">
-					<div class="checkout-shipping">
+					<div class="checkout-shipping" style="display:none">
 						<multi-checkout:shipmentItems cartData="${cartData}" showDeliveryAddress="true" />
 						<div class="checkout-indent">
 							<div class="headline"><spring:theme code="checkout.summary.deliveryMode.selectDeliveryMethodForOrder" text="Shipping Method"></spring:theme></div>
@@ -30,6 +30,10 @@
 							</form>
 							<p><spring:theme code="checkout.multi.deliveryMethod.message" text="Items will ship as soon as they are available. <br> See Order Summary for more information." /></p>
 						</div>
+					</div>
+					<div class="checkout-shipping" >
+					
+						
 					</div>
 					<button id="deliveryMethodSubmit" type="button" class="btn btn-primary btn-block checkout-next"><spring:theme code="checkout.multi.deliveryMethod.continue" text="Next"/></button>
 				</ycommerce:testId>
