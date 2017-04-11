@@ -8,16 +8,20 @@
 # Information and shall use it only in accordance with the terms of the
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
-# ImpEx for Importing Categories
-
+# ImpEx for Importing Product Localisations
+ 
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 # Language
 $lang=en
 
-# Create Categories
-UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+# Update allProducts with localisations
+UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang];summary[lang=$lang]
+;A2228207461;;Head Lamp Unit;Head Lamp Unit Sample One;This is Head Lamp Unit Sample One
+;A2229061804;;Head Lamp Unit;Head Lamp Unit Sample Two;This is Head Lamp Unit Sample Two
+;A0041593603;;Spark Plug;Spark Plug Sample One;This is Spark Plug Sample One
+;A004159300326;;Spark Plug;Spark Plug Sample Two;This is Spark Plug Sample Two

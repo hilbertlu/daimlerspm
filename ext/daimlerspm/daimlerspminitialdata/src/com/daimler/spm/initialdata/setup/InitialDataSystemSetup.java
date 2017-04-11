@@ -13,24 +13,29 @@ package com.daimler.spm.initialdata.setup;
 import de.hybris.platform.commerceservices.dataimport.impl.CoreDataImportService;
 import de.hybris.platform.commerceservices.dataimport.impl.SampleDataImportService;
 import de.hybris.platform.commerceservices.setup.AbstractSystemSetup;
+import de.hybris.platform.commerceservices.setup.data.ImportData;
+import de.hybris.platform.commerceservices.setup.events.CoreDataImportedEvent;
+import de.hybris.platform.commerceservices.setup.events.SampleDataImportedEvent;
 import de.hybris.platform.core.initialization.SystemSetup;
 import de.hybris.platform.core.initialization.SystemSetup.Process;
 import de.hybris.platform.core.initialization.SystemSetup.Type;
 import de.hybris.platform.core.initialization.SystemSetupContext;
 import de.hybris.platform.core.initialization.SystemSetupParameter;
 import de.hybris.platform.core.initialization.SystemSetupParameterMethod;
-import com.daimler.spm.initialdata.constants.DaimlerspmInitialDataConstants;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Required;
 
+import com.daimler.spm.initialdata.constants.DaimlerspmInitialDataConstants;
+
 
 /**
  * This class provides hooks into the system's initialization and update processes.
- * 
+ *
  * @see "https://wiki.hybris.com/display/release4/Hooks+for+Initialization+and+Update+Process"
  */
 @SystemSetup(extension = DaimlerspmInitialDataConstants.EXTENSIONNAME)
@@ -38,6 +43,8 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = Logger.getLogger(InitialDataSystemSetup.class);
+
+	public static final String POWERTOOLS = "powertools";
 
 	private static final String IMPORT_CORE_DATA = "importCoreData";
 	private static final String IMPORT_SAMPLE_DATA = "importSampleData";
@@ -66,7 +73,7 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 	/**
 	 * Implement this method to create initial objects. This method will be called by system creator during
 	 * initialization and system update. Be sure that this method can be called repeatedly.
-	 * 
+	 *
 	 * @param context
 	 *           the context provides the selected parameters and values
 	 */
@@ -82,17 +89,17 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 	 * Add import data for each site you have configured
 	 *
 	 * <pre>
-	 * final List<ImportData> importData = new ArrayList<ImportData>();
-	 *
+	 * final List&lt;ImportData&gt; importData = new ArrayList&lt;ImportData&gt;();
+	 * 
 	 * final ImportData sampleImportData = new ImportData();
 	 * sampleImportData.setProductCatalogName(SAMPLE_PRODUCT_CATALOG_NAME);
 	 * sampleImportData.setContentCatalogNames(Arrays.asList(SAMPLE_CONTENT_CATALOG_NAME));
 	 * sampleImportData.setStoreNames(Arrays.asList(SAMPLE_STORE_NAME));
 	 * importData.add(sampleImportData);
-	 *
+	 * 
 	 * getCoreDataImportService().execute(this, context, importData);
 	 * getEventService().publishEvent(new CoreDataImportedEvent(context, importData));
-	 *
+	 * 
 	 * getSampleDataImportService().execute(this, context, importData);
 	 * getEventService().publishEvent(new SampleDataImportedEvent(context, importData));
 	 * </pre>
@@ -106,6 +113,46 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 		/*
 		 * Add import data for each site you have configured
 		 */
+		final List<ImportData> importData = new ArrayList<ImportData>();
+
+		final ImportData powertoolsImportData = new ImportData();
+		powertoolsImportData.setProductCatalogName(POWERTOOLS);
+		powertoolsImportData.setContentCatalogNames(Arrays.asList(POWERTOOLS));
+		powertoolsImportData.setStoreNames(Arrays.asList(POWERTOOLS));
+		importData.add(powertoolsImportData);
+
+		getCoreDataImportService().execute(this, context, importData);
+		getEventService().publishEvent(new CoreDataImportedEvent(context, importData));
+
+		getSampleDataImportService().execute(this, context, importData);
+		
+		final String extensionName = context.getExtensionName();
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_en.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_de.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_zh.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/categories.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/categories_en.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/categories_zh.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products_en.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products_zh.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products-prices.impex", extensionName), false);	
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products-stocklevels.impex", extensionName), false);
+		
+		getEventService().publishEvent(new SampleDataImportedEvent(context, importData));
 	}
 
 	public CoreDataImportService getCoreDataImportService()

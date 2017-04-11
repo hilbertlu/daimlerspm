@@ -1,0 +1,90 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products Stock Levels and Warehouses
+
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$vendor=powertools
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+
+INSERT_UPDATE Vendor;code[unique=true]
+#;$vendor
+
+INSERT_UPDATE Warehouse;code[unique=true];name[lang=en];vendor(code)[default=$vendor];default[default=true]
+;wh_bj;Beijing PDC;
+;wh_sh;Shanghai PDC;
+;wh_ks;Kunshan PDC;
+;wh_gz;Guangzhou PDC;
+;wh_cd;Chengdu PDC;
+;wh_jn;Jinan PDC;
+
+INSERT_UPDATE Warehouse;code[unique=true];name[lang=zh]
+;wh_bj;北京库存中心;
+;wh_sh;上海库存中心;
+;wh_ks;昆山库存中心;
+;wh_gz;广州库存中心;
+;wh_cd;成都库存中心;
+;wh_jn;济南库存中心;
+
+INSERT_UPDATE StockLevel;productCode[unique=true];warehouse(code)[unique=true,default=default];available;inStockStatus(code);maxPreOrder[default=1];maxStockLevelHistoryCount[default=-1];overSelling[default=0];preOrder[default=0];reserved[default=0]
+;A2228207461;wh_bj;30;notSpecified
+;A2228207461;wh_sh;25;notSpecified
+;A2228207461;wh_ks;10;notSpecified
+;A2228207461;wh_gz;33;notSpecified
+;A2228207461;wh_cd;26;notSpecified
+;A2228207461;wh_jn;15;notSpecified
+;A2229061804;wh_bj;30;notSpecified
+;A2229061804;wh_sh;25;notSpecified
+;A2229061804;wh_ks;10;notSpecified
+;A2229061804;wh_gz;33;notSpecified
+;A2229061804;wh_cd;26;notSpecified
+;A2229061804;wh_jn;15;notSpecified
+;A0041593603;wh_bj;30;notSpecified
+;A0041593603;wh_sh;25;notSpecified
+;A0041593603;wh_ks;10;notSpecified
+;A0041593603;wh_gz;33;notSpecified
+;A0041593603;wh_cd;26;notSpecified
+;A0041593603;wh_jn;15;notSpecified
+;A004159300326;wh_bj;30;notSpecified
+;A004159300326;wh_sh;25;notSpecified
+;A004159300326;wh_ks;10;notSpecified
+;A004159300326;wh_gz;33;notSpecified
+;A004159300326;wh_cd;26;notSpecified
+;A004159300326;wh_jn;15;notSpecified
+
+UPDATE Product;code[unique=true];stockLevels(productCode,warehouse(code));$catalogVersion;vendors(code)[default=$vendor]
+;A2228207461;A2228207461:wh_bj;
+;A2228207461;A2228207461:wh_sh;
+;A2228207461;A2228207461:wh_ks;
+;A2228207461;A2228207461:wh_gz;
+;A2228207461;A2228207461:wh_cd;
+;A2228207461;A2228207461:wh_jn;
+;A2229061804;A2229061804:wh_bj;
+;A2229061804;A2229061804:wh_sh;
+;A2229061804;A2229061804:wh_ks;
+;A2229061804;A2229061804:wh_gz;
+;A2229061804;A2229061804:wh_cd;
+;A2229061804;A2229061804:wh_jn;
+;A0041593603;A0041593603:wh_bj;
+;A0041593603;A0041593603:wh_sh;
+;A0041593603;A0041593603:wh_ks;
+;A0041593603;A0041593603:wh_gz;
+;A0041593603;A0041593603:wh_cd;
+;A0041593603;A0041593603:wh_jn;
+;A004159300326;A004159300326:wh_bj;
+;A004159300326;A004159300326:wh_sh;
+;A004159300326;A004159300326:wh_ks;
+;A004159300326;A004159300326:wh_gz;
+;A004159300326;A004159300326:wh_cd;
+;A004159300326;A004159300326:wh_jn;

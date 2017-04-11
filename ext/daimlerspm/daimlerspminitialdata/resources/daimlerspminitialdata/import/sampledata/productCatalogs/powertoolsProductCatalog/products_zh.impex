@@ -11,8 +11,8 @@
 # ImpEx for Importing Product Localisations
  
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
@@ -20,4 +20,8 @@ $lang=zh
 
 
 # Update allProducts with localisations
-UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang]
+UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang];summary[lang=$lang]
+;A2228207461;;车前灯组;车前灯组样例商品1;这是车前灯组样例商品1
+;A2229061804;;车前灯组;车前灯组样例商品2;这是车前灯组样例商品2
+;A0041593603;;火花塞;火花塞样例商品1;这是火花塞样例商品1
+;A004159300326;;火花塞;火花塞样例商品2;这是火花塞样例商品2

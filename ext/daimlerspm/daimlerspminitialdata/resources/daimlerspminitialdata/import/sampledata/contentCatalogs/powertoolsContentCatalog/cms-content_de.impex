@@ -9,20 +9,21 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 # ImpEx for Importing CMS Content
-# ZH Localisation
+# German Localisation
 
 # Macros / Replacement Parameter definitions
-$contentCatalog=__CONTENT_CATALOG_NAME__
+$contentCatalog=powertoolsContentCatalog
 
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $picture=media(code, $contentCV);
-$siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/contentCatalogs/$contentCatalog
+$siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/sampledata/contentCatalogs/$contentCatalog
 
 # Language
-$lang=zh
+$lang=de
 
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+;;SiteLogoComponent;/images/theme/img-logo-daimler-svg.svg
 
 # CMS Link Components
 UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
@@ -47,7 +48,7 @@ UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[la
 # CMS ProductReferences Components
 UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 
-# CMS PurchasedCategorySuggestionComponent Components
+# CMS PurchasedCategorySuggestion Components
 UPDATE PurchasedCategorySuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 
 # CMS CartSuggestion Components
@@ -62,12 +63,12 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$la
 # FAQ Page
 
 # CMS Paragraph Component (Contact information)
-UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=zh];
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=de];
 
 # Terms and Conditions Page
 
 # CMS Paragraph Component (Contact information)
-UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=zh];
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=de];
 
 # Homepage
 
