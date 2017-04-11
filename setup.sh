@@ -17,3 +17,7 @@ else
 fi
 
 cp config/develop/* hybris/config/
+cp -r config/customize/ hybris/config/customize/
+cd hybris/bin/platform
+. setantenv.sh
+ant customize
