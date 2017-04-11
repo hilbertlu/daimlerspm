@@ -19,9 +19,9 @@
 		<multi-checkout:checkoutSteps checkoutSteps="${checkoutSteps}" progressBarId="${progressBarId}">
 			<jsp:body>
 				<ycommerce:testId code="checkoutStepTwo">
-					<div class="checkout-shipping" style="display:none">
+					<div class="checkout-shipping" >
 						<multi-checkout:shipmentItems cartData="${cartData}" showDeliveryAddress="true" />
-						<div class="checkout-indent">
+						<div class="checkout-indent" style="display:none">
 							<div class="headline"><spring:theme code="checkout.summary.deliveryMode.selectDeliveryMethodForOrder" text="Shipping Method"></spring:theme></div>
 							<form id="selectDeliveryMethodForm" action="${request.contextPath}/checkout/multi/delivery-method/select" method="get">
 								<div class="form-group">
