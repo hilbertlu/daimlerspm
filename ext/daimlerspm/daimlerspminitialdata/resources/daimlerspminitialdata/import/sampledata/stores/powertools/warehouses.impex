@@ -14,9 +14,15 @@
 #% impex.setLocale( Locale.GERMAN );
 
 # Macros / Replacement Parameter definitions
-$storeUid=__STORE_UID__
+$storeUid=powertools
 
 INSERT_UPDATE BaseStore2WarehouseRel;source(uid)[unique=true];target(code)[unique=true]
+;$storeUid;wh_bj
+;$storeUid;wh_sh
+;$storeUid;wh_ks
+;$storeUid;wh_gz
+;$storeUid;wh_cd
+;$storeUid;wh_jn
 
 INSERT_UPDATE PointOfService;name[unique=true];displayName;warehouses(code);address(&addrID);latitude;longitude;geocodeTimestamp[dateformat=dd.MM.yyyy];type(code)[default=WAREHOUSE]
 
