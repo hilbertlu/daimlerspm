@@ -135,6 +135,22 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_de.impex", extensionName), false);
 		getSetupImpexService().importImpexFile(String.format(
 				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_zh.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/categories.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/categories_en.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/categories_zh.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products_en.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products_zh.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products-prices.impex", extensionName), false);	
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/products-stocklevels.impex", extensionName), false);
 		
 		getEventService().publishEvent(new SampleDataImportedEvent(context, importData));
 	}
