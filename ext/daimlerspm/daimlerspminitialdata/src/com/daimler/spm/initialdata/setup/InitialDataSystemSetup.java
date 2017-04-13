@@ -152,6 +152,8 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 				"/%s/import/sampledata/productCatalogs/powertoolsContentCatalog/products-prices.impex", extensionName), false);	
 		getSetupImpexService().importImpexFile(String.format(
 				"/%s/import/sampledata/productCatalogs/powertoolsContentCatalog/products-stocklevels.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/productCatalogs/powertoolsContentCatalog/products-relations.impex", extensionName), false);
 		
 		getSetupImpexService().importImpexFile(String.format(
 				"/%s/import/sampledata/stores/powertools/warehouses.impex", extensionName), false);
