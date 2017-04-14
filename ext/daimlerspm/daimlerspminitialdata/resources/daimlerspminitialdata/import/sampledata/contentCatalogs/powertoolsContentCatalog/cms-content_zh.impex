@@ -63,6 +63,13 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 
 # CMS Navigation Nodes
 UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;SparkPlugNavNode;"火花塞"
+;;HeadLampNavNode;"车头灯"
+
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;SparkPlugCategoryLink;"火花塞"
+;;HeadLampCategoryLink;"车头灯"
 
 # FAQ Page
 

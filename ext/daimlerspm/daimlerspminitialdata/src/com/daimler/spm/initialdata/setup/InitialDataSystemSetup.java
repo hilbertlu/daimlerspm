@@ -127,14 +127,6 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 		getSampleDataImportService().execute(this, context, importData);
 		
 		final String extensionName = context.getExtensionName();
-		getSetupImpexService().importImpexFile(String.format(
-				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content.impex", extensionName), false);
-		getSetupImpexService().importImpexFile(String.format(
-				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_en.impex", extensionName), false);
-		getSetupImpexService().importImpexFile(String.format(
-				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_de.impex", extensionName), false);
-		getSetupImpexService().importImpexFile(String.format(
-				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_zh.impex", extensionName), false);
 		
 		getSetupImpexService().importImpexFile(String.format(
 				"/%s/import/sampledata/productCatalogs/powertoolsContentCatalog/categories.impex", extensionName), false);
@@ -158,6 +150,14 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 		getSetupImpexService().importImpexFile(String.format(
 				"/%s/import/sampledata/stores/powertools/warehouses.impex", extensionName), false);
 
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_en.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_de.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(String.format(
+				"/%s/import/sampledata/contentCatalogs/powertoolsContentCatalog/cms-content_zh.impex", extensionName), false);
 		
 		getEventService().publishEvent(new SampleDataImportedEvent(context, importData));
 	}

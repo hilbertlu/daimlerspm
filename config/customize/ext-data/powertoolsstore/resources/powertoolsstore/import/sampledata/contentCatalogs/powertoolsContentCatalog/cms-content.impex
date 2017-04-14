@@ -112,13 +112,21 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 
 ##---- level 4. children of Category Nav ----##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-;PowerDrillsNavNode;;Power Drills Category;PowertoolsCategoryNavNode;;PowerDrillsNavNode
-;AngleGrindersNavNode;;Angle Grinders Category;PowertoolsCategoryNavNode;;AngleGrindersNavNode
-;ScrewdriversNavNode;;Screwdrivers Category;PowertoolsCategoryNavNode;;ScrewdriversNavNode
-;SandersNavNode;;Sanders Category;PowertoolsCategoryNavNode;;SandersNavNode
-;MeasuringLayoutToolsNavNode;;Measuring & Layout Tools Category;PowertoolsCategoryNavNode;;MeasuringLayoutToolsNavNode
-;HandToolsNavNode;;Hand Tools Category;PowertoolsCategoryNavNode;;HandToolsNavNode
-;SafetyNavNode;;Safety Category;PowertoolsCategoryNavNode;;SafetyNavNode
+#;PowerDrillsNavNode;;Power Drills Category;PowertoolsCategoryNavNode;;PowerDrillsNavNode
+;PowerDrillsNavNode;;Power Drills Category;;;PowerDrillsNavNode
+#;AngleGrindersNavNode;;Angle Grinders Category;PowertoolsCategoryNavNode;;AngleGrindersNavNode
+#;AngleGrindersNavNode;;Angle Grinders Category;;;AngleGrindersNavNode
+#;ScrewdriversNavNode;;Screwdrivers Category;PowertoolsCategoryNavNode;;ScrewdriversNavNode
+;ScrewdriversNavNode;;Screwdrivers Category;;;ScrewdriversNavNode
+#;SandersNavNode;;Sanders Category;PowertoolsCategoryNavNode;;SandersNavNode
+;SandersNavNode;;Sanders Category;;;SandersNavNode
+#;MeasuringLayoutToolsNavNode;;Measuring & Layout Tools Category;PowertoolsCategoryNavNode;;MeasuringLayoutToolsNavNode
+;MeasuringLayoutToolsNavNode;;Measuring & Layout Tools Category;;;MeasuringLayoutToolsNavNode
+#;HandToolsNavNode;;Hand Tools Category;PowertoolsCategoryNavNode;;HandToolsNavNode
+;HandToolsNavNode;;Hand Tools Category;;;HandToolsNavNode
+#;SafetyNavNode;;Safety Category;PowertoolsCategoryNavNode;;SafetyNavNode
+;SafetyNavNode;;Safety Category;;;SafetyNavNode
+
 ## entries of the above navigation nodes ##
 INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
 ;PowerDrillsNavNodeEntry;;Power Drills Navigation Node Entry;PowerDrillsNavNode;PowerDrillsCategoryLink;
@@ -443,7 +451,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;PowertoolsHompagePowerDrillsBannerComponent,PowertoolsHompageAngleGrindersBannerComponent
 ;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;PowertoolsHompageScrewdriversBannerComponent,PowertoolsHompageSandersBannerComponent
 ;;Section3Slot-Homepage;Section3 Slot for Homepage;true;PowertoolsHomepageNewProductCarouselComponent,PowertoolsHomepageProductCarouselComponent
-;;Section4Slot-Homepage;Section4 Slot for Homepage;true;PowertoolsHompage25%BannerComponent,PowertoolsHompage30dayBannerComponent,PowertoolsHompage6pmBannerComponent,PowertoolsHompage24/7BannerComponent
+#;;Section4Slot-Homepage;Section4 Slot for Homepage;true;PowertoolsHompage25%BannerComponent,PowertoolsHompage30dayBannerComponent,PowertoolsHompage6pmBannerComponent,PowertoolsHompage24/7BannerComponent
+;;Section4Slot-Homepage;Section4 Slot for Homepage;true;
 
 ## slot 2C and 5: nothing to display ##
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
@@ -467,8 +476,12 @@ INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique
 
 ## components in slot 3 ##
 INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];name;products(code,$productCV);scroll(code);popup;&componentRef
-;;PowertoolsHomepageNewProductCarouselComponent;What's New Powertools Homepage Product Carousel;3755219,3881018,3592865,2116279,3755204,1128762,3092788;allVisible;false;PowertoolsHomepageNewProductCarouselComponent
-;;PowertoolsHomepageProductCarouselComponent;Powertools Homepage Product Carousel;3755205,3755211,3756505,3793682,2221933,2116275,2116282;allVisible;false;PowertoolsHomepageProductCarouselComponent
+#;;PowertoolsHomepageNewProductCarouselComponent;What's New Powertools Homepage Product Carousel;3755219,3881018,3592865,2116279,3755204,1128762,3092788;allVisible;false;PowertoolsHomepageNewProductCarouselComponent
+;;PowertoolsHomepageNewProductCarouselComponent;What's New Powertools Homepage Product Carousel;;allVisible;false;PowertoolsHomepageNewProductCarouselComponent
+#;;PowertoolsHomepageProductCarouselComponent;Powertools Homepage Product Carousel;3755205,3755211,3756505,3793682,2221933,2116275,2116282;allVisible;false;PowertoolsHomepageProductCarouselComponent
+;;PowertoolsHomepageProductCarouselComponent;Powertools Homepage Product Carousel;;allVisible;false;PowertoolsHomepageProductCarouselComponent
+
+
 
 ## This component is not used currently, but still import for future use ##
 INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];name;products(code,$productCV);scroll(code);popup;searchQuery;categoryCode;&componentRef
