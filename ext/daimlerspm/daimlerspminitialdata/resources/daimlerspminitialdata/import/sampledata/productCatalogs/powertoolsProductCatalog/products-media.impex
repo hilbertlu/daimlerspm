@@ -11,7 +11,7 @@
 # ImPex for Importing Product Media
 
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
+$productCatalog=powertoolsProductCatalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog]
 $media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
@@ -24,13 +24,33 @@ $others=others(code, $catalogVersion)
 $data_sheet=data_sheet(code, $catalogVersion)
 $medias=medias(code, $catalogVersion)
 $galleryImages=galleryImages(qualifier, $catalogVersion)
-$siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/productCatalogs/$productCatalog
+$siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daimlerspminitialdata/import/sampledata/productCatalogs/$productCatalog
 
 # Create Media
 INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
 
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)[default=images]
+;1200Wx1200H;/1200Wx1200H/SparkPlug.jpg;$siteResource/images/1200Wx1200H/SparkPlug.jpg
+;515Wx515H;/515Wx515H/SparkPlug.jpg;$siteResource/images/515Wx515H/SparkPlug.jpg
+;300Wx300H;/300Wx300H/SparkPlug.jpg;$siteResource/images/300Wx300H/SparkPlug.jpg
+;96Wx96H;/96Wx96H/SparkPlug.jpg;$siteResource/images/96Wx96H/SparkPlug.jpg
+;65Wx65H;/65Wx65H/SparkPlug.jpg;$siteResource/images/65Wx65H/SparkPlug.jpg
+;30Wx30H;/30Wx30H/SparkPlug.jpg;$siteResource/images/30Wx30H/SparkPlug.jpg
+;1200Wx1200H;/1200Wx1200H/HeadLamp.jpg;$siteResource/images/1200Wx1200H/HeadLamp.jpg
+;515Wx515H;/515Wx515H/HeadLamp.jpg;$siteResource/images/515Wx515H/HeadLamp.jpg
+;300Wx300H;/300Wx300H/HeadLamp.jpg;$siteResource/images/300Wx300H/HeadLamp.jpg
+;96Wx96H;/96Wx96H/HeadLamp.jpg;$siteResource/images/96Wx96H/HeadLamp.jpg
+;65Wx65H;/65Wx65H/HeadLamp.jpg;$siteResource/images/65Wx65H/HeadLamp.jpg
+;30Wx30H;/30Wx30H/HeadLamp.jpg;$siteResource/images/30Wx30H/HeadLamp.jpg
+
 # Create Media Containers
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;SparkPlug;/1200Wx1200H/SparkPlug.jpg,/515Wx515H/SparkPlug.jpg,/300Wx300H/SparkPlug.jpg,/96Wx96H/SparkPlug.jpg,/65Wx65H/SparkPlug.jpg,/30Wx30H/SparkPlug.jpg
+;HeadLamp;/1200Wx1200H/HeadLamp.jpg,/515Wx515H/HeadLamp.jpg,/300Wx300H/HeadLamp.jpg,/96Wx96H/HeadLamp.jpg,/65Wx65H/HeadLamp.jpg,/30Wx30H/HeadLamp.jpg
 
 # Update Products with Media and Media Containers
 UPDATE Product;code[unique=true];$picture;$thumbnail;$detail;$others;$normal;$thumbnails;$galleryImages;$catalogVersion
+;A0041593603;/300Wx300H/SparkPlug.jpg;/96Wx96H/SparkPlug.jpg;/1200Wx1200H/SparkPlug.jpg;/515Wx515H/SparkPlug.jpg,/65Wx65H/SparkPlug.jpg,/30Wx30H/SparkPlug.jpg;/300Wx300H/SparkPlug.jpg;/96Wx96H/SparkPlug.jpg;SparkPlug
+;A004159300326;/300Wx300H/SparkPlug.jpg;/96Wx96H/SparkPlug.jpg;/1200Wx1200H/SparkPlug.jpg;/515Wx515H/SparkPlug.jpg,/65Wx65H/SparkPlug.jpg,/30Wx30H/SparkPlug.jpg;/300Wx300H/SparkPlug.jpg;/96Wx96H/SparkPlug.jpg;SparkPlug
+;A2228207461;/300Wx300H/HeadLamp.jpg;/96Wx96H/HeadLamp.jpg;/1200Wx1200H/HeadLamp.jpg;/515Wx515H/HeadLamp.jpg,/65Wx65H/HeadLamp.jpg,/30Wx30H/HeadLamp.jpg;/300Wx300H/HeadLamp.jpg;/96Wx96H/HeadLamp.jpg;HeadLamp
+;A2229061804;/300Wx300H/HeadLamp.jpg;/96Wx96H/HeadLamp.jpg;/1200Wx1200H/HeadLamp.jpg;/515Wx515H/HeadLamp.jpg,/65Wx65H/HeadLamp.jpg,/30Wx30H/HeadLamp.jpg;/300Wx300H/HeadLamp.jpg;/96Wx96H/HeadLamp.jpg;HeadLamp
