@@ -21,6 +21,10 @@ $siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daim
 # Language
 $lang=en
 
+$medias=medias(code, $contentCV);
+$mediaContainer=media(qualifier, $contentCV)[lang=$lang];
+
+
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
 ;;SiteLogoComponent;/images/theme/img-logo-daimler-svg.svg
@@ -77,8 +81,18 @@ UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[la
 # Homepage
 
 # Media Content
-INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+#INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];realfilename;altText;mime[default='image/jpeg'];$contentCV[unique=true];folder(qualifier)[default=images];
+;widescreen;Daimler_1400x480_BigSplash_1400W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_1400x480_BigSplash_1400W.jpg;Daimler_1400x480_BigSplash_1400W.jpg;"The Most Powerful Tools in their Price Range";
+;desktop;Daimler_960x400_BigSplash_960W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_960x400_BigSplash_960W.jpg;Daimler_960x400_BigSplash_960W.jpg;"The Most Powerful Tools in their Price Range";
+;tablet;Daimler_770x350_BigSplash_700W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_770x350_BigSplash_700W.jpg;Daimler_770x350_BigSplash_700W.jpg;"The Most Powerful Tools in their Price Range";
+;mobile;Daimler_320x300_BigSplash_320W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_320x300_BigSplash_320W.jpg;Daimler_320x300_BigSplash_320W.jpg;"The Most Powerful Tools in their Price Range";
 
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
+;Daimler-homepage-spalsh-en;Daimler_1400x480_BigSplash_1400W_en.jpg,Daimler_960x400_BigSplash_960W_en.jpg,Daimler_770x350_BigSplash_700W_en.jpg,Daimler_320x300_BigSplash_320W_en.jpg
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
+;;PowertoolsHompageSplashBannerComponent;Daimler-homepage-spalsh-en
 
 # CMS Banner Components
 UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;&imageRef

@@ -185,6 +185,11 @@ INSERT_UPDATE BreadcrumbComponent;$contentCV[unique=true];uid[unique=true];name;
 
 ###### Homepage ######
 
+## components in slot 1 ##
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+;;PowertoolsHompageSplashBannerComponent;Powertools Homepage Splash Banner Component;https://www.daimler.com;PowertoolsHompageSplashBannerComponent
+
+
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;&imageRef;folder(qualifier)[default='images']
 
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
