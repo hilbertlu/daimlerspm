@@ -35,6 +35,9 @@
                             <c:if test="${component.displayProductTitles}">
                                 <div class="item-name">${productReference.target.name}</div>
                             </c:if>
+                            <c:if test="${component.displayProductTitles}">
+                                <div class="item-name">${productReference.target.code}</div>
+                            </c:if>
                             <c:if test="${component.displayProductPrices}">
                                 <div class="priceContainer">
                                     <format:fromPrice priceData="${productReference.target.price}" />

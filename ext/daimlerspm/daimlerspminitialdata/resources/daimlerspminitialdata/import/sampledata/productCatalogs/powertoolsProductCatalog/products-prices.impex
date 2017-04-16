@@ -15,11 +15,12 @@ $productCatalog=powertoolsProductCatalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default='$productCatalog:Staged']
 $prices=Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
+$taxGroup=Europe1PriceFactory_PTG(code)[default=us-sales-tax-full]
 
 # Set product approval status to Approved only for those products that have prices.
 $approved=approvalstatus(code)[default='approved']
 
-UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;Europe1PriceFactory_PTG(code)
+UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;$taxGroup
 ;A2228207461;1 pieces = 75 USD N
 ;A2229061804;1 pieces = 72 USD N
 ;A0041593603;1 pieces = 50 USD N

@@ -154,7 +154,7 @@
 							<c:if test="${empty hideHeaderLinks}">
 								<ycommerce:testId code="header_StoreFinder_link">
 									<div class="nav-location hidden-xs">
-										<a href="<c:url value="/store-finder"/>" class="btn">
+										<a href="<c:url value="https://retailfactory.mercedes-benz.com/Account/LogOn"/>" class="btn">
 											<span class="glyphicon glyphicon-map-marker"></span>
 										</a>
 									</div>

@@ -11,10 +11,13 @@
 # ImpEx for Related Products
 
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 # Insert Product References
 INSERT_UPDATE ProductReference;source(code,$catalogVersion)[unique=true];target(code,$catalogVersion)[unique=true];referenceType(code);active[default=true];preselected[default=false]
+;A2228207461;A2229061804;SIMILAR
+;A0041593603;A004159300326;SIMILAR
+;A004159300326;A0041593603;SIMILAR

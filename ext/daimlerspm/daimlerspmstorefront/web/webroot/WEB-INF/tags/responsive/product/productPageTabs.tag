@@ -36,24 +36,24 @@
 		</div>
 	</div>
 
-	<div id="tabreview" class="tabhead">
-		<a href=""><spring:theme code="review.reviews" /></a> <span
-			class="glyphicon"></span>
-	</div>
-	<div class="tabbody">
-		<div class="container-lg">
-			<div class="row">
-				<div class=" col-md-6 col-lg-4">
-					<div class="tab-container">
-						<product:productPageReviewsTab product="${product}" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- 	<div id="tabreview" class="tabhead"> -->
+<%-- 		<a href=""><spring:theme code="review.reviews" /></a> <span --%>
+<!-- 			class="glyphicon"></span> -->
+<!-- 	</div> -->
+<!-- 	<div class="tabbody"> -->
+<!-- 		<div class="container-lg"> -->
+<!-- 			<div class="row"> -->
+<!-- 				<div class=" col-md-6 col-lg-4"> -->
+<!-- 					<div class="tab-container"> -->
+<%-- 						<product:productPageReviewsTab product="${product}" /> --%>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 
-	<cms:pageSlot position="Tabs" var="tabs">
-		<cms:component component="${tabs}" />
-	</cms:pageSlot>
+<%-- 	<cms:pageSlot position="Tabs" var="tabs"> --%>
+<%-- 		<cms:component component="${tabs}" /> --%>
+<%-- 	</cms:pageSlot> --%>
 
 </div>

@@ -21,6 +21,10 @@ $siteResource=jar:com.daimler.spm.initialdata.setup.InitialDataSystemSetup&/daim
 # Language
 $lang=en
 
+$medias=medias(code, $contentCV);
+$mediaContainer=media(qualifier, $contentCV)[lang=$lang];
+
+
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
 ;;SiteLogoComponent;/images/theme/img-logo-daimler-svg.svg
@@ -47,6 +51,7 @@ UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[la
 
 # CMS Product References Components
 UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;Similar;"Supersession Part..."
 
 # CMS PurchasedCategorySuggestionComponent Components
 UPDATE PurchasedCategorySuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
@@ -59,7 +64,13 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 
 # CMS Navigation Nodes
 UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;SparkPlugNavNode;"Spark Plug"
+;;HeadLampNavNode;"Head Lamp"
 
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;SparkPlugCategoryLink;"Spark Plug"
+;;HeadLampCategoryLink;"Head Lamp"
 
 # FAQ Page
 
@@ -76,8 +87,30 @@ UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[la
 # Homepage
 
 # Media Content
-INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+#INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];realfilename;altText;mime[default='image/jpeg'];$contentCV[unique=true];folder(qualifier)[default=images];
+;widescreen;Daimler_1400x480_BigSplash_1400W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_1400x480_BigSplash_1400W.jpg;Daimler_1400x480_BigSplash_1400W.jpg;"The Most Powerful Tools in their Price Range";
+;desktop;Daimler_960x400_BigSplash_960W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_960x400_BigSplash_960W.jpg;Daimler_960x400_BigSplash_960W.jpg;"The Most Powerful Tools in their Price Range";
+;tablet;Daimler_770x350_BigSplash_700W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_770x350_BigSplash_700W.jpg;Daimler_770x350_BigSplash_700W.jpg;"The Most Powerful Tools in their Price Range";
+;mobile;Daimler_320x300_BigSplash_320W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_320x300_BigSplash_320W.jpg;Daimler_320x300_BigSplash_320W.jpg;"The Most Powerful Tools in their Price Range";
+;widescreen;Daimler_350x290_SparkPlug_350W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_350x290_SparkPlug_350W.jpg;Daimler_350x290_SparkPlug_350W.jpg;"Spark Plug";
+;desktop;Daimler_240x220_SparkPlug_240W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_240x220_SparkPlug_240W.jpg;Daimler_240x220_SparkPlug_240W.jpg;"Spark Plug";
+;mobile;Daimler_320x260_SparkPlug_320W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_320x260_SparkPlug_320W.jpg;Daimler_320x260_SparkPlug_320W.jpg;"Spark Plug";
+;tablet;Daimler_385x290_SparkPlug_385W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_385x290_SparkPlug_385W.jpg;Daimler_385x290_SparkPlug_385W.jpg;"Spark Plug";
+;widescreen;Daimler_350x290_HeadLamp_350W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_350x290_HeadLamp_350W.jpg;Daimler_350x290_HeadLamp_350W.jpg;"Head Lamp";
+;desktop;Daimler_240x220_HeadLamp_240W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_240x220_HeadLamp_240W.jpg;Daimler_240x220_HeadLamp_240W.jpg;"Head Lamp";
+;mobile;Daimler_320x260_HeadLamp_320W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_320x260_HeadLamp_320W.jpg;Daimler_320x260_HeadLamp_320W.jpg;"Head Lamp";
+;tablet;Daimler_385x290_HeadLamp_385W_en.jpg;$siteResource/images/banners/homepage/responsive/Daimler_385x290_HeadLamp_385W.jpg;Daimler_385x290_HeadLamp_385W.jpg;"Head Lamp";
 
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
+;Daimler-homepage-spalsh-en;Daimler_1400x480_BigSplash_1400W_en.jpg,Daimler_960x400_BigSplash_960W_en.jpg,Daimler_770x350_BigSplash_700W_en.jpg,Daimler_320x300_BigSplash_320W_en.jpg
+;Daimler-homepage-sparkplug-en;Daimler_350x290_SparkPlug_350W_en.jpg,Daimler_240x220_SparkPlug_240W_en.jpg,Daimler_320x260_SparkPlug_320W_en.jpg,Daimler_385x290_SparkPlug_385W_en.jpg
+;Daimler-homepage-headlamp-en;Daimler_350x290_HeadLamp_350W_en.jpg,Daimler_240x220_HeadLamp_240W_en.jpg,Daimler_320x260_HeadLamp_320W_en.jpg,Daimler_385x290_HeadLamp_385W_en.jpg
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
+;;PowertoolsHompageSplashBannerComponent;Daimler-homepage-spalsh-en
+;;DaimlerHompageSparkPlugBannerComponent;Daimler-homepage-sparkplug-en
+;;DaimlerHompageHeadLampBannerComponent;Daimler-homepage-headlamp-en
 
 # CMS Banner Components
 UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;&imageRef
