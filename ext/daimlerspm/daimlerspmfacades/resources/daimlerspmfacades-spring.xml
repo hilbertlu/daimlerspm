@@ -193,4 +193,18 @@
     </bean>
     <alias name="daimlerspmWarehouseFacades" alias="daimlerWHFacades"/>
     <bean id="daimlerspmWarehouseFacades" class="com.daimler.spm.facades.products.impl.DaimlerspmProductFacadesImpl"></bean>
+    
+    <!-- user story 15 -->
+<!--     <alias name="daimlerspmConsignmentEntryPopulator" alias="daimlerspmConsignmentEntryPopulator"/>
+    <bean id="daimlerspmConsignmentEntryPopulator" class="com.daimler.spm.facades.populators.DaimlerspmConsignmentEntryDataPopulator" />
+    
+   	<bean id="daimlerspmOrderConsignmentDataPopulator" class="com.daimler.spm.facades.populators.DaimlerspmOrderConsigmentDataPopulator"></bean>  -->
+   	
+   	<bean id="daimlerOrderConfirmPopulator" class="com.daimler.spm.facades.populators.DaimlerspmOrderConfirmPopulator"></bean> 
+    
+    <bean id="daimlerspmOrderFacdes" class="com.daimler.spm.facades.order.facade.impl.DaimlerspmOrderFacadeImpl"></bean>
+    
+   <!--  <alias name="consignmentEntryModelPopulator" alias="consignmentEntryModelPopulator"/>
+    <bean id="consignmentEntryModelPopulator" class="com.daimler.spm.facades.populators.DaimlerspmConsignmentEntryPopulator" /> -->
+    
 </beans>

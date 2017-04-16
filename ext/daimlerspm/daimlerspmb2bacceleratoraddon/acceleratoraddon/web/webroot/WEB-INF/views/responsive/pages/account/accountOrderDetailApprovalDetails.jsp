@@ -1,5 +1,5 @@
 <%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="order" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/order" %>
+<%@ taglib prefix="order" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/order" %>
 
 <div>
 	<c:if test="${not empty orderData.b2bPermissionResult}">

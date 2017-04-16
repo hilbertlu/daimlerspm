@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/responsive/template" %>
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
-<%@ taglib prefix="addonProduct" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/product" %>
+<%@ taglib prefix="addonProduct" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/product" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
-<%@ taglib prefix="nav" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/nav" %>
+<%@ taglib prefix="nav" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/nav" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="formElement" tagdir="/WEB-INF/tags/responsive/formElement" %>
-<%@ taglib prefix="addonFormElement" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/formElement" %>
+<%@ taglib prefix="addonFormElement" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/formElement" %>
 <%@ taglib prefix="grid" tagdir="/WEB-INF/tags/responsive/grid" %>
 
 <spring:htmlEscape defaultHtmlEscape="true"/>

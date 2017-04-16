@@ -489,6 +489,16 @@
 	
 	<!-- Added for US:DSPM-11 related about Warehouse End :::: -->
 
+	<!-- Added for US:DSPM-15 related about Warehouse Start :::: -->
+	<bean id="daimlerspmOrderDao" class="com.daimler.spm.core.order.dao.impl.DaimlerspmOrderDaoImpl"  parent="abstractItemDao" >
+	</bean>
+	<alias name="daimlerspmOrderService" alias="daimlerspmOrderService"/>
+	<bean id="daimlerspmOrderService" class="com.daimler.spm.core.order.service.impl.DaimlerspmOrderServiceImpl">
+		<property name="daimlerspmOrderDao" ref="daimlerspmOrderDao"></property>
+	</bean>
+
+	<!-- Added for US:DSPM-15 related about Warehouse End :::: -->
+
 	<import resource="/daimlerspmcore/processes/quote/quote-buyer-process-spring.xml"/>
 	<import resource="/daimlerspmcore/processes/quote/quote-salesrep-process-spring.xml"/>
 	<import resource="/daimlerspmcore/processes/quote/quote-seller-approval-process-spring.xml"/>

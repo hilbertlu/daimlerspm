@@ -1,6 +1,6 @@
 <%@ tag body-content="empty" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="b2b-order" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/order"%>
+<%@ taglib prefix="b2b-order" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/order"%>
 <%--
     ~ /*
     ~  * [y] hybris Platform

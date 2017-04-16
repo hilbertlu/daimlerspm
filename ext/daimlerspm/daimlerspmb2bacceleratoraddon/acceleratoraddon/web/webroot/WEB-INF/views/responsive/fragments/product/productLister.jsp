@@ -11,7 +11,7 @@
 <%@ taglib prefix="json" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/responsive/common" %>
 <%@ taglib prefix="grid" tagdir="/WEB-INF/tags/responsive/grid" %>
-<%@ taglib prefix="addonProduct" tagdir="/WEB-INF/tags/addons/b2bacceleratoraddon/responsive/product" %>
+<%@ taglib prefix="addonProduct" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/product" %>
 
 <c:set var="skuIndex" scope="session" value="${skuIndex}" />
 
