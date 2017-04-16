@@ -199,10 +199,18 @@ INSERT_UPDATE BreadcrumbComponent;$contentCV[unique=true];uid[unique=true];name;
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
 ;;PowertoolsHompageSplashBannerComponent;Powertools Homepage Splash Banner Component;https://www.daimler.com;PowertoolsHompageSplashBannerComponent
 
+## components in slot 2A ##
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+;;DaimlerHompageSparkPlugBannerComponent;Daimler Homepage Spark Plug Banner Component;Spark-Plug/c/sparkplug;DaimlerHompageSparkPlugBannerComponent
+;;DaimlerHompageHeadLampBannerComponent;Daimler Homepage Head Lamp Banner Component;Lamp/c/headlamp;DaimlerHompageHeadLampBannerComponent
+
 INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];name;products(code,$productCV);scroll(code);popup;&componentRef
 ;;PowertoolsHomepageNewProductCarouselComponent;What's New Powertools Homepage Product Carousel;A2228207461,A2229061804,A0041593603,A004159300326;allVisible;false;PowertoolsHomepageNewProductCarouselComponent
 ;;PowertoolsHomepageProductCarouselComponent;Powertools Homepage Product Carousel;A004159300326,A0041593603,A2229061804,A2228207461;allVisible;false;PowertoolsHomepageProductCarouselComponent
 
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
+;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;DaimlerHompageSparkPlugBannerComponent,DaimlerHompageHeadLampBannerComponent
+;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;DaimlerHompageSparkPlugBannerComponent,DaimlerHompageHeadLampBannerComponent
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;&imageRef;folder(qualifier)[default='images']
 
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink

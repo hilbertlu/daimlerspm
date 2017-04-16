@@ -90,12 +90,24 @@ INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=d
 ;desktop;Daimler_960x400_BigSplash_960W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_960x400_BigSplash_960W.jpg;Daimler_960x400_BigSplash_960W.jpg;"The Most Powerful Tools in their Price Range";
 ;tablet;Daimler_770x350_BigSplash_700W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_770x350_BigSplash_700W.jpg;Daimler_770x350_BigSplash_700W.jpg;"The Most Powerful Tools in their Price Range";
 ;mobile;Daimler_320x300_BigSplash_320W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_320x300_BigSplash_320W.jpg;Daimler_320x300_BigSplash_320W.jpg;"The Most Powerful Tools in their Price Range";
+;widescreen;Daimler_350x290_SparkPlug_350W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_350x290_SparkPlug_350W.jpg;Daimler_350x290_SparkPlug_350W.jpg;"Spark Plug";
+;desktop;Daimler_240x220_SparkPlug_240W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_240x220_SparkPlug_240W.jpg;Daimler_240x220_SparkPlug_240W.jpg;"Spark Plug";
+;mobile;Daimler_320x260_SparkPlug_320W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_320x260_SparkPlug_320W.jpg;Daimler_320x260_SparkPlug_320W.jpg;"Spark Plug";
+;tablet;Daimler_385x290_SparkPlug_385W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_385x290_SparkPlug_385W.jpg;Daimler_385x290_SparkPlug_385W.jpg;"Spark Plug";
+;widescreen;Daimler_350x290_HeadLamp_350W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_350x290_HeadLamp_350W.jpg;Daimler_350x290_HeadLamp_350W.jpg;"Head Lamp";
+;desktop;Daimler_240x220_HeadLamp_240W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_240x220_HeadLamp_240W.jpg;Daimler_240x220_HeadLamp_240W.jpg;"Head Lamp";
+;mobile;Daimler_320x260_HeadLamp_320W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_320x260_HeadLamp_320W.jpg;Daimler_320x260_HeadLamp_320W.jpg;"Head Lamp";
+;tablet;Daimler_385x290_HeadLamp_385W_zh.jpg;$siteResource/images/banners/homepage/responsive/Daimler_385x290_HeadLamp_385W.jpg;Daimler_385x290_HeadLamp_385W.jpg;"Head Lamp";
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
 ;Daimler-homepage-spalsh-zh;Daimler_1400x480_BigSplash_1400W_zh.jpg,Daimler_960x400_BigSplash_960W_zh.jpg,Daimler_770x350_BigSplash_700W_zh.jpg,Daimler_320x300_BigSplash_320W_zh.jpg
+;Daimler-homepage-sparkplug-zh;Daimler_350x290_SparkPlug_350W_zh.jpg,Daimler_240x220_SparkPlug_240W_zh.jpg,Daimler_320x260_SparkPlug_320W_zh.jpg,Daimler_385x290_SparkPlug_385W_zh.jpg
+;Daimler-homepage-headlamp-zh;Daimler_350x290_HeadLamp_350W_zh.jpg,Daimler_240x220_HeadLamp_240W_zh.jpg,Daimler_320x260_HeadLamp_320W_zh.jpg,Daimler_385x290_HeadLamp_385W_zh.jpg
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
 ;;PowertoolsHompageSplashBannerComponent;Daimler-homepage-spalsh-zh
+;;DaimlerHompageSparkPlugBannerComponent;Daimler-homepage-sparkplug-zh
+;;DaimlerHompageHeadLampBannerComponent;Daimler-homepage-headlamp-zh
 
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
 

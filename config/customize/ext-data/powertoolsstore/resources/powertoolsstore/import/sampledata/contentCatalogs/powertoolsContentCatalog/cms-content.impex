@@ -448,8 +448,10 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
 ;;Section1Slot-Homepage;Section1 Slot for Homepage;true;PowertoolsHompageSplashBannerComponent
-;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;PowertoolsHompagePowerDrillsBannerComponent,PowertoolsHompageAngleGrindersBannerComponent
-;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;PowertoolsHompageScrewdriversBannerComponent,PowertoolsHompageSandersBannerComponent
+#;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;PowertoolsHompagePowerDrillsBannerComponent,PowertoolsHompageAngleGrindersBannerComponent
+;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;
+#;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;PowertoolsHompageScrewdriversBannerComponent,PowertoolsHompageSandersBannerComponent
+;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;
 ;;Section3Slot-Homepage;Section3 Slot for Homepage;true;PowertoolsHomepageNewProductCarouselComponent,PowertoolsHomepageProductCarouselComponent
 #;;Section4Slot-Homepage;Section4 Slot for Homepage;true;PowertoolsHompage25%BannerComponent,PowertoolsHompage30dayBannerComponent,PowertoolsHompage6pmBannerComponent,PowertoolsHompage24/7BannerComponent
 ;;Section4Slot-Homepage;Section4 Slot for Homepage;true;
