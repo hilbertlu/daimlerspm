@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-xs-12 col-md-5 col-lg-6">
         <div class="cart-voucher">
-            <cart:cartVoucher cartData="${cartData}"/>
+<%--             <cart:cartVoucher cartData="${cartData}"/> --%>
         </div>
     </div>
     <div class="col-xs-12 col-md-7 col-lg-6">
