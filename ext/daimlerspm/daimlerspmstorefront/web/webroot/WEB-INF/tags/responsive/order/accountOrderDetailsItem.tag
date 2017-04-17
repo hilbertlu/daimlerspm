@@ -50,16 +50,20 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-4">
+                                	<c:if test="${consignment.invoiceData ne null}">
                                 	<div>
                                 		<a class="download-lnk" href="${consignment.invoiceData.documentMedia.downloadURL }" target="_blank">
                                                 Invoice
                                             </a>
                                 	</div>
+                                	</c:if>
+                                	<c:if test="${consignment.deliveryNote ne null}">
                                 	<div>
                                 		<a class="download-lnk" href="${consignment.deliveryNote.documentMedia.downloadURL }" target="_blank">
                                                 Shipping Notes
                                             </a>
                                 	</div>
+                                	</c:if>
                                 </div>
                             </div>
 
