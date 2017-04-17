@@ -37,12 +37,15 @@ public class DaimlerspmOrderDaoImpl extends AbstractItemDao  implements Daimlers
 			+ ConsignmentModel.CODE + "} = ?consignmentCode and {" + ConsignmentModel.ORDER + "} in ({{ select {" + OrderModel.PK
 			+ "} from {" + OrderModel._TYPECODE + "} where {" + OrderModel.CODE + "} = ?orderCode }})";
 	
-	private static final String FIND_DOCUMENT_IGNORE_UNIT = "SELECT {" + DocumentMediaModel._TYPECODE + ":pk}  " + "FROM { "
-			+ B2BDocumentModel._TYPECODE + " as " + B2BDocumentModel._TYPECODE + " join " + B2BDocumentTypeModel._TYPECODE + " as "
-			+ B2BDocumentTypeModel._TYPECODE + " on {" + B2BDocumentModel._TYPECODE + ":documentType} = {"
-			+ B2BDocumentTypeModel._TYPECODE + ":pk} " + "join " + DocumentMediaModel._TYPECODE + " as "
-			+ DocumentMediaModel._TYPECODE + " on {" + B2BDocumentModel._TYPECODE + ":documentMedia} = {"
-			+ DocumentMediaModel._TYPECODE + ":pk} " + "} ";
+//	private static final String FIND_DOCUMENT_IGNORE_UNIT = "SELECT {" + B2BDocumentModel._TYPECODE + ":pk}  " + "FROM { "
+//			+ B2BDocumentModel._TYPECODE + " as " + B2BDocumentModel._TYPECODE + " join " + B2BDocumentTypeModel._TYPECODE + " as "
+//			+ B2BDocumentTypeModel._TYPECODE + " on {" + B2BDocumentModel._TYPECODE + ":documentType} = {"
+//			+ B2BDocumentTypeModel._TYPECODE + ":pk} " + "join " + DocumentMediaModel._TYPECODE + " as "
+//			+ DocumentMediaModel._TYPECODE + " on {" + B2BDocumentModel._TYPECODE + ":documentMedia} = {"
+//			+ DocumentMediaModel._TYPECODE + ":pk} " + "} ";
+	
+
+	private static final String FIND_DOCUMENT_IGNORE_UNIT ="SELECT {" + B2BDocumentModel._TYPECODE+ ":pk}  " + "FROM { "+ B2BDocumentModel._TYPECODE+ " as " + B2BDocumentModel._TYPECODE +"} ";
 	
 	/* (non-Javadoc)
 	 * @see com.daimler.spm.core.order.dao.DaimlerspmOrderDao#getOrderModelByCode(java.lang.String)
@@ -84,9 +87,13 @@ public class DaimlerspmOrderDaoImpl extends AbstractItemDao  implements Daimlers
 		}
 
 		//search
-		final FlexibleSearchQuery query = new FlexibleSearchQuery(FIND_DOCUMENT_IGNORE_UNIT + whereStatement.toString());
+		FlexibleSearchQuery query = new FlexibleSearchQuery(FIND_DOCUMENT_IGNORE_UNIT + whereStatement.toString());
+		query.getQueryParameters().putAll(queryParams);
+		//final FlexibleSearchQuery query = new FlexibleSearchQuery(FIND_DOCUMENT_IGNORE_UNIT + whereStatement.toString());
 		query.addQueryParameters(queryParams);
-		return (List<B2BDocumentModel>) getFlexibleSearchService().search(query);
+		
+		SearchResult result = this.getFlexibleSearchService().search(query);
+		return result.getResult();
 	}
 
 	@Override
@@ -104,7 +111,8 @@ public class DaimlerspmOrderDaoImpl extends AbstractItemDao  implements Daimlers
 		
 		final FlexibleSearchQuery query = new FlexibleSearchQuery(FIND_DOCUMENT_IGNORE_UNIT + whereStatement.toString());
 		query.addQueryParameters(queryParams);
-		return (List<B2BDocumentModel>) getFlexibleSearchService().search(query);
+		SearchResult result = this.getFlexibleSearchService().search(query);
+		return result.getResult();
 	}
 
 	/* (non-Javadoc)
@@ -116,6 +124,11 @@ public class DaimlerspmOrderDaoImpl extends AbstractItemDao  implements Daimlers
 		final FlexibleSearchQuery query = new FlexibleSearchQuery(FQL);
 		query.addQueryParameter(CONSIGNMENT_CODE, consignmentCode);
 		query.addQueryParameter(ORDER_CODE, orderCode);		
-		return getFlexibleSearchService().searchUnique(query);
+		//return getFlexibleSearchService().searchUnique(query);
+		
+		SearchResult result = this.getFlexibleSearchService().search(query);
+		List consignments = result.getResult();
+		return consignments.isEmpty() ? null : (ConsignmentModel) consignments.get(0);
+		
 	}
 }

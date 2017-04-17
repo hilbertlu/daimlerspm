@@ -67,12 +67,8 @@ public class DaimlerspmOrderFacadeImpl implements DaimlerspmOrderFacade
 	public void saveConsignmentDocument(String order, String code, String documentnumber, boolean invoice, boolean deliveryNote)
 	{
 		// YTODO Auto-generated method stub
-		if(invoice){
-			daimlerspmOrderService.saveConsignmentDocument(order, code, documentnumber, "Invoice");
-		}
-		if(deliveryNote){
-			daimlerspmOrderService.saveConsignmentDocument(order, code, documentnumber, "DeliveryNotes");
-		}
+		
+		daimlerspmOrderService.saveConsignmentDocument(order, code, documentnumber, invoice, deliveryNote);
 			
 	}
 	

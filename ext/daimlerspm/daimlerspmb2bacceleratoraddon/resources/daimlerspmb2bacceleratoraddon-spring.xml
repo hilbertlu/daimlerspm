@@ -303,4 +303,33 @@
 		</property>
 	</bean>
     
+    <bean id="daimlerspmConsignmentPopulator" class="com.daimler.spm.b2bacceleratoraddon.populators.DaimlerspmConsignmentPopulator">
+    	<property name="consignmentEntryConverter" ref="consignmentEntryConverter"/>
+		<property name="addressConverter" ref="addressConverter"/>
+		<property name="pointOfServiceConverter" ref="pointOfServiceConverter"/>
+    </bean>
+    
+    <alias name="defaultConsignmentConverter" alias="consignmentConverter"/>
+	<bean id="defaultConsignmentConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="de.hybris.platform.commercefacades.order.data.ConsignmentData"/>
+		<property name="populators">
+			<list>
+				<ref bean="daimlerspmConsignmentPopulator"/>
+			</list>
+		</property>
+	</bean>
+    
+    
+   <!--  <alias name="b2bOrderConverter" alias="orderConverter"/>
+	<bean id="b2bOrderConverter" parent="defaultOrderConverter">
+		<property name="populators">
+			<list merge="true">
+				<ref bean="orderPopulator"/>
+				<ref bean="groupOrderEntryPopulator"/>
+				<ref bean="orderConsignmentPopulator"/>
+				<ref bean="daimlerspmConsignmentPopulator"/>
+				<ref bean="groupOrderConsignmentEntryPopulator"/>
+			</list>
+		</property>
+	</bean> -->
 </beans>
