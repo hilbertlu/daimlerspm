@@ -46,32 +46,31 @@ Populator<SOURCE, TARGET>
 	 * @see de.hybris.platform.converters.Populator#populate(java.lang.Object, java.lang.Object)
 	 */
 	@Override
-	public void populate(SOURCE source, TARGET target) throws ConversionException
+	public void populate(SOURCE source, TARGET target) 
 	{
 		// YTODO Auto-generated method stub
-		if(source!=null && target!=null){
-			target.setStatus(OrderStatus.valueOf(source.getStatus()));
-			Set<ConsignmentModel> consignments=target.getConsignments();
-			if(consignments==null || consignments.size()<=0 || !consignments.iterator().hasNext()){
-				consignments=new HashSet<ConsignmentModel>();
-			}else{
-				consignments.clear();
-			}
-			List<DaimlerspmConsignment> conDatas= source.getConsignments();
-			if(conDatas!=null && conDatas.size()>0){
-				for(DaimlerspmConsignment con: conDatas){
-					ConsignmentModel consignment=daimlerspmOrderService.createConsignmentmodel(target, con.getCode(), con.getShippingDate(), con.getWarehouse()	, con.getStatus(), con.getDaimlerspmConsignmentEntry());
-					
-					if(consignment!=null){
-						consignment.setShippingAddress(target.getDeliveryAddress());
-						setWarehouseOfConsignment(con.getWarehouse(), target, consignment);
-						consignments.add(consignment);
+			if(source!=null && target!=null){
+				target.setStatus(OrderStatus.valueOf(source.getStatus()));
+				Set<ConsignmentModel> consignments=target.getConsignments();
+				if(consignments==null || consignments.size()<=0 || !consignments.iterator().hasNext()){
+					consignments=new HashSet<ConsignmentModel>();
+					List<DaimlerspmConsignment> conDatas= source.getConsignments();
+					if(conDatas!=null && conDatas.size()>0){
+						for(DaimlerspmConsignment con: conDatas){
+							ConsignmentModel consignment=daimlerspmOrderService.createConsignmentmodel(target, con.getCode(), con.getShippingDate(), con.getWarehouse()	, con.getStatus(), con.getDaimlerspmConsignmentEntry());
+							
+							if(consignment!=null){
+								consignment.setShippingAddress(target.getDeliveryAddress());
+								setWarehouseOfConsignment(con.getWarehouse(), target, consignment);
+								consignments.add(consignment);
+							}
+								
+						}
 					}
-						
+					target.setConsignments(consignments);
 				}
-			}
-			target.setConsignments(consignments);
-		}		
+			}	
+		
 		
 	}
 	
