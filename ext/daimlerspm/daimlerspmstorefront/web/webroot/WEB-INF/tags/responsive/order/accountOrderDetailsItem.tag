@@ -49,6 +49,18 @@
                                         </ycommerce:testId>
                                     </div>
                                 </div>
+                                <div class="col-sm-6 col-md-4">
+                                	<div>
+                                		<a class="download-lnk" href="${result.documentMedia.downloadURL }" target="_blank">
+                                                Invoice
+                                            </a>
+                                	</div>
+                                	<div>
+                                		<a class="download-lnk" href="${result.documentMedia.downloadURL }" target="_blank">
+                                                Shipping Notes
+                                            </a>
+                                	</div>
+                                </div>
                             </div>
 
                             <c:if test="${not inProgress}">

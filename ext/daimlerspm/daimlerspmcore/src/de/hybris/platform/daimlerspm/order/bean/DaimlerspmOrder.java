@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "daimlerspmOrder")
-@XmlType(name = "RequestMessage")
+@XmlType(name = "DaimlerspmOrder")
 public class DaimlerspmOrder
 {
 

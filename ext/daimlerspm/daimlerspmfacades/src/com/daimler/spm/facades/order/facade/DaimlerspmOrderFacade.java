@@ -16,4 +16,6 @@ public interface DaimlerspmOrderFacade
 	void saveOrder(DaimlerspmOrder orderData);
 	
 	OrderData findOrderByCode(String code);
+	
+	void saveConsignmentDocument(String order, String code, String documentnumber, boolean invoice, boolean deliveryNote);
 }

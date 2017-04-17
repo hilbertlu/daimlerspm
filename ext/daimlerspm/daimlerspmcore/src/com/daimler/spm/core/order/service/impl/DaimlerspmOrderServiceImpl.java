@@ -3,6 +3,8 @@
  */
 package com.daimler.spm.core.order.service.impl;
 
+import de.hybris.platform.accountsummaryaddon.model.B2BDocumentModel;
+import de.hybris.platform.accountsummaryaddon.model.B2BDocumentTypeModel;
 import de.hybris.platform.basecommerce.enums.ConsignmentStatus;
 import de.hybris.platform.commercefacades.order.data.ConsignmentEntryData;
 import de.hybris.platform.commercefacades.order.data.OrderEntryData;
@@ -19,11 +21,13 @@ import de.hybris.platform.ordersplitting.model.WarehouseModel;
 import de.hybris.platform.servicelayer.model.ModelService;
 
 import java.security.SecureRandom;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -109,6 +113,50 @@ public class DaimlerspmOrderServiceImpl implements DaimlerspmOrderService
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see com.daimler.spm.core.order.service.DaimlerspmOrderService#saveConsignmentDocument()
+	 */
+	@Override
+	public void saveConsignmentDocument(String order, String code,String documentnumber,boolean invoice, boolean deliveryNote)
+	{
+		// YTODO Auto-generated method stub
+		List<B2BDocumentModel> documents=daimlerspmOrderDao.findDocumentsByConsignmentCode(code);
+		ConsignmentModel consignment=daimlerspmOrderDao.findConsignmentByCode(order, code);
+		if(documents==null || documents.size()<=0){
+			documents=daimlerspmOrderDao.findDocumentsByDocumentNumber(documentnumber);
+		}
+		for(B2BDocumentModel doc:documents){
+			if(doc.getDocumentType()!=null ){
+				
+				if(invoice){
+					consignment.setInvoice(doc);
+					doc.setConsignment(consignment);
+					
+				}
+				if(deliveryNote){
+					consignment.setShippingNotes(doc);
+					doc.setConsignment(consignment);
+				}
+				
+				this.modelService.save(consignment);
+				this.modelService.save(doc);
+				
+			}else{
+//				B2BDocumentTypeModel documentType=this.modelService.create(B2BDocumentTypeModel.class);
+//				if(invoice)
+//					documentType.setCode(type);
+//				documentType.setCreationtime(new Date(System.currentTimeMillis()));
+//				documentType.setDisplayInAllList(Boolean.TRUE);
+//				documentType.setDocument(documents);
+//				documentType.setName(type);
+//				documentType.setName(type, Locale.ENGLISH);
+//				doc.setDocumentType(documentType);
+				continue;
+			}			
+		}
+	}
+
+	
 
 	/**
 	 * @return the daimlerspmOrderDao
@@ -161,6 +209,8 @@ public class DaimlerspmOrderServiceImpl implements DaimlerspmOrderService
 	{
 		this.warehouseService = warehouseService;
 	}
+
+
 
 	
 	

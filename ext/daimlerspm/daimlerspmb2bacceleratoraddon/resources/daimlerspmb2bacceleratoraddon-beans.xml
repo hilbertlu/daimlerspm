@@ -24,5 +24,9 @@
 		<property name="flag" type="boolean"/>
 	</bean>
 	-->
-
+	
+	<bean class="de.hybris.platform.commercefacades.order.data.ConsignmentData">
+		<property name="invoiceData" type="de.hybris.platform.accountsummaryaddon.document.data.B2BDocumentData" />
+		<property name="deliveryNote" type="de.hybris.platform.accountsummaryaddon.document.data.B2BDocumentData" />
+	</bean>
 </beans>

@@ -43,6 +43,19 @@
                 </c:if>
             </div>
         </c:if>
+        
+         <div class="col-sm-6 col-md-4">
+                                	<div>
+                                		<a class="download-lnk" href="${result.documentMedia.downloadURL }" target="_blank">
+                                                Invoice
+                                            </a>
+                                	</div>
+                                	<div>
+                                		<a class="download-lnk" href="${result.documentMedia.downloadURL }" target="_blank">
+                                                Shipping Notes
+                                            </a>
+                                	</div>
+                                </div>
     </div>
 	<%--<c:if test="${not inProgress and statusDate ne null}">
 		<spring:theme code="text.account.order.consignment.pickUpBy" text="Pick Up By:"/>&nbsp;<fmt:formatDate value="${statusDate}" dateStyle="medium" timeStyle="short" type="both"/>

@@ -60,6 +60,23 @@ public class DaimlerspmOrderFacadeImpl implements DaimlerspmOrderFacade
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.daimler.spm.facades.order.facade.DaimlerspmOrderFacade#saveConsignmentDocument(java.lang.String, java.lang.String, boolean, boolean)
+	 */
+	@Override
+	public void saveConsignmentDocument(String order, String code, String documentnumber, boolean invoice, boolean deliveryNote)
+	{
+		// YTODO Auto-generated method stub
+		if(invoice){
+			daimlerspmOrderService.saveConsignmentDocument(order, code, documentnumber, "Invoice");
+		}
+		if(deliveryNote){
+			daimlerspmOrderService.saveConsignmentDocument(order, code, documentnumber, "DeliveryNotes");
+		}
+			
+	}
+	
+	
 	/**
 	 * @return the daimlerspmOrderService
 	 */

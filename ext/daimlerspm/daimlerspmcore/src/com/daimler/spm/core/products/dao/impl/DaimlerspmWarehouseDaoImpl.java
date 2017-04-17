@@ -3,15 +3,23 @@
  */
 package com.daimler.spm.core.products.dao.impl;
 
+import de.hybris.platform.accountsummaryaddon.model.B2BDocumentModel;
+import de.hybris.platform.accountsummaryaddon.model.B2BDocumentTypeModel;
+import de.hybris.platform.accountsummaryaddon.model.DocumentMediaModel;
 import de.hybris.platform.ordersplitting.model.StockLevelModel;
 import de.hybris.platform.ordersplitting.model.WarehouseModel;
 import de.hybris.platform.servicelayer.internal.dao.AbstractItemDao;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.SearchResult;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.fest.util.Collections;
 
 import com.daimler.spm.core.products.dao.DaimlerspmWarehouseDao;
 
@@ -25,6 +33,9 @@ public class DaimlerspmWarehouseDaoImpl extends AbstractItemDao implements Daiml
 
 	private static final Logger LOG = Logger.getLogger(DaimlerspmWarehouseDaoImpl.class);
 
+	
+	
+	
 	/*
 	 * (non-Javadoc)
 	 * 

@@ -22,5 +22,32 @@
 			  	extends="SimpleCMSAction" autocreate="true" generate="true">
 			</itemtype>
 		</typegroup>
+		<!-- Daimler -->
+		<typegroup name="Daimlerspm">
+			<itemtype code="Consignment" autocreate="false" generate="false">
+				<description>Extending Consignment type with additional attributes.</description>
+				<attributes>
+					<attribute qualifier="shippingNotes" type="B2BDocument">
+						<description>The shippingNotes.</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="invoice" type="B2BDocument">
+						<description>The "invoice".</description>
+						<persistence type="property" />
+					</attribute>
+				</attributes>
+			</itemtype>
+			
+			<itemtype code="B2BDocument" generate="false" autocreate="false">
+				<description>Extending B2BDocument type with additional attributes.</description>
+				<attributes>
+					<attribute type="Consignment" qualifier="consignment">
+						<description>The consigment fo the document</description>
+						<persistence type="property"></persistence>
+					</attribute>
+				</attributes>
+			</itemtype>
+		</typegroup>
+		
 	</itemtypes>
 </items>
