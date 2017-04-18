@@ -9,9 +9,9 @@
 <c:if test="${futureStockEnabled}">
 	<ycommerce:testId code="productDetails_showAvailability_label">
 		<c:url value="${product.url}/futureStock" var="productfutureStockUrl"/>
-		<a class="futureStockLink" href="${productfutureStockUrl}" target="_blank" title="<spring:theme code="basket.page.viewFuture"/>">
-			<spring:theme code="basket.page.viewFuture"/>
-		</a>
+<%-- 		<a class="futureStockLink" href="${productfutureStockUrl}" target="_blank" title="<spring:theme code="basket.page.viewFuture"/>"> --%>
+<%-- 			<spring:theme code="basket.page.viewFuture"/> --%>
+<!-- 		</a> -->
 	</ycommerce:testId>
 </c:if>
 
