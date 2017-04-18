@@ -46,6 +46,12 @@ public class DaimlerspmConsignmentPopulator implements Populator<ConsignmentMode
 
 		target.setCode(source.getCode());
 		target.setTrackingID(source.getTrackingID());
+		if (source.getStatusDisplay() != null)
+		{
+			target.setStatusDisplay(source.getStatusDisplay());
+		}else{
+			target.setStatusDisplay(source.getStatus().getCode().toLowerCase());
+		}
 		target.setStatus(source.getStatus());
 		target.setEntries(Converters.convertAll(source.getConsignmentEntries(), getConsignmentEntryConverter()));
 		

@@ -5,7 +5,7 @@
 <%@ taglib prefix="b2b-product" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/product" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 
-<<style>
+<style>
 <!--
 
 -->
