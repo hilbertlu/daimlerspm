@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.daimler.spm.facades.order.facade.DaimlerspmOrderFacade;
 
@@ -50,7 +52,7 @@ public class DaimlerspmOrderConfirmationController extends BaseCommerceControlle
 		try
 		{
 			final StringBuilder msg = new StringBuilder();
-			response.setHeader("content-type", "text/html;charset=UTF-8");
+			response.setHeader("content-type", "application/xml;charset=UTF-8");
 			if (orderDTO != null)
 			{
 
@@ -84,9 +86,24 @@ public class DaimlerspmOrderConfirmationController extends BaseCommerceControlle
 
 	@Secured(
 	{ "ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "ROLE_CUSTOMERMANAGERGROUP" })
-	@RequestMapping(value = "/document", method = RequestMethod.POST)
+	@RequestMapping(value = "/documentWithReq", method = RequestMethod.POST, consumes =
+	{ MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	public void updateConsignmentDocuments(final HttpServletRequest request, final HttpServletResponse response)
 	{
+		try
+		{
+			if (request.getReader().read() > 0)
+			{
+				System.out.println("---------request xml: " + request.getReader().readLine());
+			}
+		}
+		catch (final Exception e)
+		{
+			e.printStackTrace();
+		}
+
+
+
 
 		final String order = StringUtils.isNotEmpty(request.getParameter("order")) ? request.getParameter("order") : "00004007";
 		final String code = StringUtils.isNotEmpty(request.getParameter("consignment")) ? request.getParameter("consignment")
@@ -98,10 +115,48 @@ public class DaimlerspmOrderConfirmationController extends BaseCommerceControlle
 				.getParameter("deliverynote") : "false";
 		try
 		{
-			response.setHeader("content-type", "text/html;charset=UTF-8");
+			response.setHeader("content-type", "application/xml;charset=UTF-8");
 			final String msg = "Update Consignment Document Success !";
 			daimlerspmOrderFacdes.saveConsignmentDocument(order, code, document, StringUtils.isNotEmpty(invoice) ? true : false,
 					StringUtils.isNotEmpty(deliveryNote) ? true : false);
+			response.setStatus(response.SC_OK);
+			response.getWriter().write(msg);
+			response.getWriter().flush();
+			response.flushBuffer();
+		}
+		catch (final Exception e)
+		{
+			LOG.error(e.getMessage());
+			e.printStackTrace();
+			try
+			{
+				response.sendError(response.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+			}
+			catch (final IOException e1)
+			{
+				// YTODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
+
+
+	@Secured(
+	{ "ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "ROLE_CUSTOMERMANAGERGROUP" })
+	@RequestMapping(value = "/document", method = RequestMethod.POST, consumes =
+	{ MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	public void updateConsignmentDocumentsWithParam(@RequestParam(required = false) final String order,
+			@RequestParam(required = false) final String consignment, @RequestParam(required = false) final String document,
+			@RequestParam(required = false, defaultValue = "false") final String invoice,
+			@RequestParam(required = false, defaultValue = "false") final String deliverynote, final HttpServletResponse response)
+	{
+
+		try
+		{
+			response.setHeader("content-type", "application/xml;charset=UTF-8");
+			final String msg = "Update Consignment Document Success !";
+			daimlerspmOrderFacdes.saveConsignmentDocument(order, consignment, document, StringUtils.isNotEmpty(invoice) ? true
+					: false, StringUtils.isNotEmpty(deliverynote) ? true : false);
 			response.setStatus(response.SC_OK);
 			response.getWriter().write(msg);
 			response.getWriter().flush();
