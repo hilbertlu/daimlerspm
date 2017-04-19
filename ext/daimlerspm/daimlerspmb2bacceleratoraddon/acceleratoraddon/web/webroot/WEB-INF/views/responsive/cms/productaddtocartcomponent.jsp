@@ -5,7 +5,7 @@
 <%@ taglib prefix="b2b-product" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/product" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 
-<<style>
+<style>
 <!--
 
 -->
@@ -52,6 +52,7 @@ padding: 8px 10px;
     </c:if>
 	<div>
 		<table class="warehouse_table">
+			<c:if test="${ stockDatas ne null}">
     		<tr>
 			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="pdp.product.stockinfo.warehouse"/></th>
 			<th class="warehouse_table_header" style="text-align: left"><spring:theme code="pdp.product.stockinfo.stocklevel"/></th>
@@ -66,6 +67,7 @@ padding: 8px 10px;
 				</tr>
 			</c:forEach>
 			</tbody>
+			</c:if>
 		</table>
 	</div>
     <div class="stock-wrapper clearfix">
