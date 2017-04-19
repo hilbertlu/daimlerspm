@@ -503,4 +503,10 @@
 	<import resource="/daimlerspmcore/processes/quote/quote-salesrep-process-spring.xml"/>
 	<import resource="/daimlerspmcore/processes/quote/quote-seller-approval-process-spring.xml"/>
 	
+	<!-- To fix the return request quantity issue for consignment split case by Hilbert -->
+	<alias alias="consignmentBasedReturnableCheck" name="defaultDaimlerSpmConsignmentBasedReturnableCheck"/>
+	<bean id="defaultDaimlerSpmConsignmentBasedReturnableCheck"
+	      class="com.daimler.spm.core.returns.strategy.impl.DefaultDaimlerSpmConsignmentBasedReturnableCheck"
+	      parent="defaultConsignmentBasedReturnableCheck">
+	</bean>
 </beans>
