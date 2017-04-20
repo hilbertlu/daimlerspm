@@ -50,7 +50,7 @@ UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[la
 
 # CMS ProductReferences Components
 UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
-;;Similar;"代用零部件..."
+;;Similar;"代用零部件 C22..."
 
 # CMS PurchasedCategorySuggestionComponent Components
 UPDATE PurchasedCategorySuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
