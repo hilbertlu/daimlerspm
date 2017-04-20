@@ -97,7 +97,7 @@ public class ClaimOrderPageController extends AbstractSearchPageController
 	@Resource(name = "productService")
 	private ProductService productService;
 	
-	@RequestMapping(value="claims",method = RequestMethod.GET)
+	@RequestMapping(value="/claims",method = RequestMethod.GET)
 	@RequireHardLogIn
 	public String getMyReturnRequests(@RequestParam(value = "page", defaultValue = "0") final int pageNumber,
 			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
