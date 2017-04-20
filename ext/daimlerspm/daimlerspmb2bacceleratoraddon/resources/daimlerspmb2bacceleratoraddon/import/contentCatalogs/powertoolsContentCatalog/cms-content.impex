@@ -13,13 +13,6 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
 $jarResourceCms=jar:com.daimler.spm.b2bacceleratoraddon.constants.Daimlerspmb2bacceleratoraddonConstants&/daimlerspmb2bacceleratoraddon/import/cockpit/cmscockpit
 $addonExtensionName=daimlerspmb2bacceleratoraddon
 
-
-INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];page;actions(uid,$contentCV);&componentRef
-;;AccountOrderDetailsItemsComponent;/WEB-INF/views/addons/$addonExtensionName/responsive/pages/account/accountOrderDetailItems.jsp;;AccountOrderDetailsItemsComponent
-;;AccountOrderDetailsShippingComponent;/WEB-INF/views/addons/$addonExtensionName/responsive/pages/account/accountOrderDetailShippingInfo.jsp;;AccountOrderDetailsShippingComponent
-
-
-
 $contentCatalog=powertoolsContentCatalog
 $productCatalog=powertoolsProductCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
@@ -140,38 +133,6 @@ INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;
 ###### confirm Claim order page page End ######
 
 
-###### Account My Claims Start ######
-
-#cms-content.impex
-INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)
-;;claims;Claims Page;AccountPageTemplate;claims
-
-# CMS Navigation Nodes (children of my account)
-INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-;MyClaimsHistoryNavNode;;MyClaimsHistoryNavNode;MyAccountNavNode;;MyClaimsHistoryNavNode
-
-# create cms navigation entry for nvaigation child nodes
-INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
-;MyClaimsHistoryNavNodeEntry;;MyClaimsHistoryNavNodeEntry;MyClaimsHistoryNavNode;MyClaimsHistoryNavNodeEntry;
-
-# CMS Link Components
-INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow'];$category;$product;
-;;MyClaimsHistoryLink;MyReturnsHistoryLink;/my-account/order/claims;MyClaimsHistoryLink;MyClaimsHistoryLink;;;;
-
-INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='claims'];contentSlot(uid,$contentCV)[unique=true];;;
-;;SideContent-claims;SideContent;;SideContent-claims;;;
-;;BodyContent-claims;BodyContent;;BodyContent-claims;;;
-
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-;;SideContent-claims;Side Content Slot for My Account Claims;true;;;;
-;;BodyContent-claims;Body Content Slot for My Account Claims;true;MyClaimsHistoryComponent;;;
-
-INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
-;;MyClaimsHistoryComponent;Account My Returns Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/accountClaimHistoryPage.jsp;;MyClaimsHistoryComponent
-
-###### Account My Claims End ######
-
-
 ###### Return Request Details page starts ######
 
 # Functional Content Pages
@@ -192,3 +153,8 @@ INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;
 
 
 ###### Return Request Details page End ######
+
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];page;actions(uid,$contentCV);&componentRef
+;;AccountOrderDetailsItemsComponent;/WEB-INF/views/addons/$addonExtensionName/responsive/pages/account/accountOrderDetailItems.jsp;;AccountOrderDetailsItemsComponent
+;;AccountOrderDetailsShippingComponent;/WEB-INF/views/addons/$addonExtensionName/responsive/pages/account/accountOrderDetailShippingInfo.jsp;;AccountOrderDetailsShippingComponent
