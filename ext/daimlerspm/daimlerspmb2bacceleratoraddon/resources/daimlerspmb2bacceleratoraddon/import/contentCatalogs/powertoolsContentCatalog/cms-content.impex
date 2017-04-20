@@ -17,3 +17,178 @@ $addonExtensionName=daimlerspmb2bacceleratoraddon
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];page;actions(uid,$contentCV);&componentRef
 ;;AccountOrderDetailsItemsComponent;/WEB-INF/views/addons/$addonExtensionName/responsive/pages/account/accountOrderDetailItems.jsp;;AccountOrderDetailsItemsComponent
 ;;AccountOrderDetailsShippingComponent;/WEB-INF/views/addons/$addonExtensionName/responsive/pages/account/accountOrderDetailShippingInfo.jsp;;AccountOrderDetailsShippingComponent
+
+
+
+$contentCatalog=powertoolsContentCatalog
+$productCatalog=powertoolsProductCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$product=product(code, $productCV)
+$category=category(code, $productCV)
+
+###### Account My Claim Start ######
+
+#cms-content.impex
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)
+;;claims;Claims Page;AccountPageTemplate;claims
+
+# CMS Navigation Nodes (children of my account)
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+;MyClaimsHistoryNavNode;;MyClaimsHistoryNavNode;MyAccountNavNode;;MyClaimsHistoryNavNode
+
+# create cms navigation entry for nvaigation child nodes
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+;MyClaimsHistoryNavNodeEntry;;MyClaimsHistoryNavNodeEntry;MyClaimsHistoryNavNode;MyClaimsHistoryLink;
+
+# CMS Link Components
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow'];$category;$product;
+;;MyClaimsHistoryLink;MyClaimsHistoryLink;/my-account/order/claims;MyClaimsHistoryLink;MyClaimsHistoryLink;;;;
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='returns'];contentSlot(uid,$contentCV)[unique=true];;;
+;;SideContent-claims;SideContent;;SideContent-claims;;;
+;;BodyContent-claims;BodyContent;;BodyContent-claims;;;
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+;;SideContent-claims;Side Content Slot for My Account Claims;true;;;;
+;;BodyContent-claims;Body Content Slot for My Account Claims;true;MyClaimsHistoryComponent;;;
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+;;MyClaimsHistoryComponent;Account My Claims Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/accountClaimHistoryPage.jsp;;MyClaimsHistoryComponent
+
+###### Account My Claim End ######
+
+
+
+##### Claim Request Action start ########
+
+INSERT_UPDATE ApplicableCmsActionsTypeForCmsComponent;target(code)[unique=true];source(code)[unique=true];
+;JspIncludeComponent;ReturnOrderAction;
+
+# CMS Return Order Action
+INSERT_UPDATE ReturnOrderAction;$contentCV[unique=true];uid[unique=true];url;name;restrictions(uid,$contentCV);&actionRef
+;;ReturnOrderAction;/my-account/order/{orderCode}/claims;Claim Order Action;ActionRestriction;ReturnOrderAction
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV)[mode=append];&componentRef
+;;AccountOrderDetailsOverviewComponent;Account Order Details Overview Info Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/b2b/accountOrderDetailOverview.jsp;ReturnOrderAction;AccountOrderDetailsOverviewComponent
+
+##### Claim Request Action end ########
+
+
+
+###### Claim order page page Start ######
+
+# Functional Content Pages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;claim-order;Claim Order Page;AccountPageTemplate;claim-order
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+;;SideContent-claim-order;Side Content Slot for My Account claim-order;true;;;;
+;;BodyContent-claim-order;Body Content Slot for My Account claim-order;true;ClaimOrderHeadlineComponent,ClaimOrderComponent;;;
+
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='claim-order'];contentSlot(uid,$contentCV)[unique=true];;;
+;;SideContent-claim-order;SideContent;;SideContent-claim-order;;;
+;;BodyContent-claim-order;BodyContent;;BodyContent-claim-order;;;
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV)[mode=append];&componentRef
+;;ClaimOrderComponent;Claim Order Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/accountClaimOrderPage.jsp;;ClaimOrderComponent
+;;ClaimOrderHeadlineComponent;Claim Order Headline Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/claimOrderHeadline.jsp;;ClaimOrderHeadlineComponent
+
+
+###### Claim order page page End ######
+
+
+
+$contentCatalog=powertoolsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+# Language
+$lang=en
+
+# Content Pages
+UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+ ;;claims;"Claim Order"
+
+# CMS Navigation Nodes
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;MyClaimsHistoryNavNode;"Claims History"
+
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;MyClaimsHistoryLink;"Claims History"
+
+
+# Functional Content Pages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;confirm-claim-order;Confirm Claim Order Page;AccountPageTemplate;confirm-claim-order
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+;;SideContent-confirm-claim-order;Side Content Slot for My Account confirm-claim-order;true;;;;
+;;BodyContent-confirm-claim-order;Body Content Slot for My Account confirm-claim-order;true;ClaimConfirmOrderHeadlineComponent,ClaimOrderConfirmationComponent;;;
+
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='confirm-claim-order'];contentSlot(uid,$contentCV)[unique=true];;;
+;;SideContent-confirm-claim-order;SideContent;;SideContent-confirm-claim-order;;;
+;;BodyContent-confirm-claim-order;BodyContent;;BodyContent-confirm-claim-order;;;
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV)[mode=append];&componentRef
+;;ClaimOrderConfirmationComponent;Claim Confirmation Order Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/accountClaimConfirmationPage.jsp;;ClaimOrderConfirmationComponent
+;;ClaimConfirmOrderHeadlineComponent;Confirm Claim Order Headline Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/claimConfirmOrderHeadline.jsp;;ClaimConfirmOrderHeadlineComponent
+# Functional Content Pages
+
+###### confirm Claim order page page End ######
+
+
+###### Account My Claims Start ######
+
+#cms-content.impex
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)
+;;claims;Claims Page;AccountPageTemplate;claims
+
+# CMS Navigation Nodes (children of my account)
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+;MyClaimsHistoryNavNode;;MyClaimsHistoryNavNode;MyAccountNavNode;;MyClaimsHistoryNavNode
+
+# create cms navigation entry for nvaigation child nodes
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+;MyClaimsHistoryNavNodeEntry;;MyClaimsHistoryNavNodeEntry;MyClaimsHistoryNavNode;MyClaimsHistoryNavNodeEntry;
+
+# CMS Link Components
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow'];$category;$product;
+;;MyClaimsHistoryLink;MyReturnsHistoryLink;/my-account/order/claims;MyClaimsHistoryLink;MyClaimsHistoryLink;;;;
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='claims'];contentSlot(uid,$contentCV)[unique=true];;;
+;;SideContent-claims;SideContent;;SideContent-claims;;;
+;;BodyContent-claims;BodyContent;;BodyContent-claims;;;
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+;;SideContent-claims;Side Content Slot for My Account Claims;true;;;;
+;;BodyContent-claims;Body Content Slot for My Account Claims;true;MyClaimsHistoryComponent;;;
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+;;MyClaimsHistoryComponent;Account My Returns Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/accountClaimHistoryPage.jsp;;MyClaimsHistoryComponent
+
+###### Account My Claims End ######
+
+
+###### Return Request Details page starts ######
+
+# Functional Content Pages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;claims-request-details;Claims Request Details Page;AccountPageTemplate;claims-request-details
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+;;SideContent-claims-request-details;Side Content Slot for My Account claims-request-details;true;;;;
+;;BodyContent-claims-request-details;Body Content Slot for My Account claims-request-details;true;ClaimRequestDetailsHeadlineComponent,ClaimRequestDetailsComponent;;;
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='claims-request-details'];contentSlot(uid,$contentCV)[unique=true];;;
+;;SideContent-claims-request-details;SideContent;;SideContent-claims-request-details;;;
+;;BodyContent-claims-request-details;BodyContent;;BodyContent-claims-request-details;;;
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV)[mode=append];&componentRef
+;;ClaimRequestDetailsComponent;Claim Request Details Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/accountClaimRequestDetails.jsp;;ClaimRequestDetailsComponent
+;;ClaimRequestDetailsHeadlineComponent;Claim Request Details Headline Component;/WEB-INF/views/addons/daimlerspmb2bacceleratoraddon/responsive/pages/account/claim/claimRequestDetailsHeadline.jsp;;ClaimRequestDetailsHeadlineComponent
+
+
+###### Return Request Details page End ######

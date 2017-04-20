@@ -318,7 +318,15 @@
 			</list>
 		</property>
 	</bean>
-    
+	
+	<alias name="daimlerCustomerTicketingFacade" alias="defaultTicketFacade"/>
+    <bean id="daimlerCustomerTicketingFacade" parent="defaultCustomerTicketingFacade">
+    	<property name="associationStrategies">
+			<list>
+				<ref bean="ticketReturnRequestAssociationStrategy"/>
+			</list>
+		</property>
+    </bean>
     
    <!--  <alias name="b2bOrderConverter" alias="orderConverter"/>
 	<bean id="b2bOrderConverter" parent="defaultOrderConverter">

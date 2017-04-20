@@ -17,6 +17,7 @@
 		<requires-extension name="b2bacceleratorfacades"/>
 		<requires-extension name="acceleratorstorefrontcommons"/>
 		<requires-extension name="accountsummaryaddon"/>
+		<requires-extension name="orderselfserviceaddon"/>
 
 		<coremodule generated="true" manager="com.daimler.spm.b2bacceleratoraddon.jalo.Daimlerspmb2bacceleratoraddonManager" packageroot="com.daimler.spm.b2bacceleratoraddon"/>
 

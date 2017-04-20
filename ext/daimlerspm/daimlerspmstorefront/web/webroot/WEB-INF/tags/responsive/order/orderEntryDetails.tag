@@ -6,6 +6,7 @@
 <%@ attribute name="itemIndex" required="true" type="java.lang.Integer" %>
 <%@ attribute name="targetUrl" required="false" type="java.lang.String" %>
 <%@ attribute name="showStock" required="false" type="java.lang.Boolean" %>
+<%@ attribute name="claim" required="false" type="java.lang.Boolean" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -16,6 +17,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="order" tagdir="/WEB-INF/tags/responsive/order" %>
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/responsive/common" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:set var="varShowStock" value="${(empty showStock) ? true : showStock}" />
 
@@ -134,7 +136,31 @@
             </span>
         </ycommerce:testId>
     </div>
+    <c:choose>
+    	<c:when test="${claim eq true }">
+    		 <div class="item__quantity hidden-xs hidden-sm">
+                                <div class="js-qty-form${nloop.index}" action="">
+                                    <c:set var="key" value="${entry.entryNumber}"/>
+                                    <form:input class="form-control js-update-entry-quantity-input" type="text" size="1"
+                                                path="returnEntryQuantityMap[${key}]"/>
+                                </div>
+                            </div>
 
+                            <div class="item__quantity visible-xs visible-sm">
+                                <div class="item__quantity-wrapper">
+                                    <div class="js-qty-form${nloop.index}" action="">
+                                        <label class="visible-xs visible-sm item__quantity__input-label" path="quantity"
+                                               for="quantity${entry.entryNumber}"> <spring:theme
+                                                code="text.account.return.qty"/></label>
+                                        <c:set var="key" value="${nentry.entryNumber}"/>
+                                        <form:input class="form-control js-update-entry-quantity-input" type="text" size="1"
+                                                    path="returnEntryQuantityMap[${key}]"/>
+                                    </div>
+                                </div>
+                            </div>
+    	</c:when>
+    	<c:otherwise>
+    		
      <%-- total --%>
     <div class="item__total hidden-xs hidden-sm">
         <ycommerce:testId code="orderDetails_productTotalPrice_label">
@@ -178,6 +204,9 @@
             </div>
         </div>
     </div>
+    	</c:otherwise>
+    </c:choose>
+
 </li>
 
 <li>
