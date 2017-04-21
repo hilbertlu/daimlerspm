@@ -17,7 +17,7 @@
 		<enumtype code="ReturnStatus" autocreate="false" generate="false">
 			<value code="CREATED" />
 			<value code="ACCEPTED" />
-			<value code="INSEPECTION_PASS" />
+			<value code="INSPECTION_PASS" />
 		</enumtype>
 	</enumtypes>
 	
