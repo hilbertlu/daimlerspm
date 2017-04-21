@@ -13,6 +13,14 @@
 <items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 			xsi:noNamespaceSchemaLocation="items.xsd">
 
+	<enumtypes>
+		<enumtype code="ReturnStatus" autocreate="false" generate="false">
+			<value code="CREATED" />
+			<value code="ACCEPTED" />
+			<value code="INSEPECTION_PASS" />
+		</enumtype>
+	</enumtypes>
+	
 	<itemtypes>
 		<typegroup name="CMS Actions">
 			<itemtype code="ReorderAction" jaloclass="com.daimler.spm.b2bacceleratoraddon.jalo.actions.ReorderAction"

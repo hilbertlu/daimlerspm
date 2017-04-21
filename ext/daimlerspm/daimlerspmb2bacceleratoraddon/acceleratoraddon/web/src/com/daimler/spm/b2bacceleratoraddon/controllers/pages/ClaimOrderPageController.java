@@ -309,7 +309,7 @@ public class ClaimOrderPageController extends AbstractSearchPageController
 			returnEntry.setAction(ReturnAction.HOLD);
 			returnEntries.add(returnEntry);
 		});
-		returnRequest.setStatus(ReturnStatus.APPROVAL_PENDING);
+		returnRequest.setStatus(ReturnStatus.CREATED);
 		returnRequest.setEntries(returnEntries);
 		returnRequest.setRefundDeliveryCost(false);
 		return returnRequest;
