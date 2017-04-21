@@ -9,8 +9,8 @@
 <%@ taglib prefix="pagination" tagdir="/WEB-INF/tags/responsive/nav/pagination" %>
 
 
-<spring:url value="/my-account/claims/" var="claimsDetailsUrl"/>
-<c:set var="searchUrl" value="/my-account/claims?sort=${searchPageData.pagination.sort}"/>
+<spring:url value="/my-account/order/claims/details/" var="claimsDetailsUrl"/>
+<c:set var="searchUrl" value="/my-account/order/claims?sort=${searchPageData.pagination.sort}"/>
 
 <div class="account-section-header">
 	<spring:theme code="text.account.claimsHistory" />
@@ -32,24 +32,25 @@
 			<div class="account-overview-table">
 				<table class="orderhistory-list-table returnorder-list-table responsive-table">
 					<tr class="account-orderhistory-table-head account-returnorder-table-head responsive-table-head hidden-xs">
-						<th><spring:theme code="text.account.claimsHistory.rma" /></th>
 						<th><spring:theme code="text.account.claimsHistory.requestNumber" /></th>
+						<th><spring:theme code="text.account.claimsHistory.orderNumber" /></th>
 						<th><spring:theme code="text.account.claimsHistory.creationTime"/></th>
 						<th><spring:theme code="text.account.claimsHistory.claimStatus"/></th>
 					</tr>
 					<c:forEach items="${searchPageData.results}" var="myReturn">
 						<tr class="responsive-table-item">
 							<ycommerce:testId code="orderHistoryItem_orderDetails_link">
-								<td class="hidden-sm hidden-md hidden-lg"><spring:theme code="text.account.claimsHistory.rma" /></td>
+								<td class="hidden-sm hidden-md hidden-lg"><spring:theme code="text.account.claimsHistory.requestNumber" /></td>
 								<td class="responsive-table-cell">
 									<a href="${claimsDetailsUrl}${myReturn.code}" class="responsive-table-link">
-											${myReturn.rma}
+											${myReturn.code}
 									</a>
 								</td>
-								<td class="hidden-sm hidden-md hidden-lg"><spring:theme code="text.account.claimsHistory.requestNumber" /></td>
+								<td class="hidden-sm hidden-md hidden-lg"><spring:theme code="text.account.claimsHistory.orderNumber" /></td>
 								<td class="responsive-table-cell">
 										${myReturn.order.code}
 								</td>
+								
 								<td class="responsive-table-cell">
 									<fmt:formatDate value="${myReturn.creationTime}" dateStyle="medium" timeStyle="short" type="both"/>
 								</td>

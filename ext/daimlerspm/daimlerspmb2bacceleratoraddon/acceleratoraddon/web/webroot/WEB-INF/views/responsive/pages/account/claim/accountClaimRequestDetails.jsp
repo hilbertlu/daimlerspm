@@ -1,22 +1,22 @@
 <%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="return" tagdir="/WEB-INF/tags/addons/orderselfserviceaddon/responsive/return" %>
+<%@ taglib prefix="claim" tagdir="/WEB-INF/tags/addons/daimlerspmb2bacceleratoraddon/responsive/claim" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 
 <div class="well well-tertiary well-lg">
     <ycommerce:testId code="return_overview_section">
-        <return:accountReturnOverview returnRequest="${returnRequestData}"/>
+        <claim:accountClaimOverview returnRequest="${returnRequestData}"/>
     </ycommerce:testId>
 </div>
 <br/>
 <ycommerce:testId code="return_entries_section">
-    <return:accountReturnEntriesOverview returnRequest="${returnRequestData}"/>
+    <claim:accountClaimEntriesOverview returnRequest="${returnRequestData}"/>
 </ycommerce:testId>
 <br/>
 <ycommerce:testId code="return_entries_section">
-    <return:accountReturnTotals returnRequest="${returnRequestData}"/>
+    <claim:accountClaimTotals returnRequest="${returnRequestData}"/>
 </ycommerce:testId>
 <br/>
 <ycommerce:testId code="return_actions_section">
-    <return:accountReturnActions returnRequest="${returnRequestData}"/>
+    <claim:accountClaimActions returnRequest="${returnRequestData}"/>
 </ycommerce:testId>
 

@@ -14,15 +14,15 @@
         <div class="col-sm-2 col-md-2">
             <div class="item-group">
                 <ycommerce:testId code="return_overviewReturnRequestID_label">
-                    <span class="item-label"><spring:theme code="text.account.return.details.rma"/></span>
-                    <span class="item-value">${fn:escapeXml(returnRequest.rma)}</span>
+                    <span class="item-label"><spring:theme code="text.account.claim.details.request"/></span>
+                    <span class="item-value">${fn:escapeXml(returnRequest.code)}</span>
                 </ycommerce:testId>
             </div>
         </div>
         <div class="col-sm-2 col-md-2">
             <div class="item-group">
                 <ycommerce:testId code="return_overviewReturnRequestStatus_label">
-                    <span class="item-label"><spring:theme code="text.account.return.details.status"/></span>
+                    <span class="item-label"><spring:theme code="text.account.claim.details.status"/></span>
                         <span class="item-value"><spring:theme
                                 code="text.account.return.status.display.${fn:toUpperCase(returnRequest.status)}"/></span>
                 </ycommerce:testId>

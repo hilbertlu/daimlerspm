@@ -10,9 +10,9 @@
     <div class="row">
         <div class="return-details-actions">
             <div class="col-sm-6 col-md-5 col-lg-4 pull-right">
-                <a href="${request.contextPath}/my-account/returns" data-role="button">
+                <a href="${request.contextPath}/my-account/order/claims" data-role="button">
                     <button type="submit" class="btn btn-primary btn-block" id="backtoreturnsbutton">
-                        <spring:theme code="text.account.return.details.back.to.returns"/>
+                        <spring:theme code="text.account.claim.details.back.to.claims"/>
                     </button>
                 </a>
             </div>

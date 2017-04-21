@@ -17,7 +17,7 @@
 
                     <div class="returnTotal__wrapper-total-label">
                         <div class="">
-                            <spring:theme code="text.account.return.details.totals" text="Return Totals"/>
+                            <spring:theme code="text.account.claim.details.totals" text="Claim Totals"/>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="totals">
-                            <spring:theme code="text.account.return.details.total"/>
+                            <spring:theme code="text.account.claim.details.total"/>
                         </div>
                     </div>
 

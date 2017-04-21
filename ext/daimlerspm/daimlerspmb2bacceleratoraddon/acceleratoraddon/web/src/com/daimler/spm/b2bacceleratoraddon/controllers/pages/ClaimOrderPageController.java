@@ -13,6 +13,7 @@ import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.Abstrac
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.basecommerce.enums.RefundReason;
 import de.hybris.platform.basecommerce.enums.ReturnAction;
+import de.hybris.platform.basecommerce.enums.ReturnStatus;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.commercefacades.order.OrderFacade;
 import de.hybris.platform.commercefacades.order.data.OrderData;
@@ -308,6 +309,7 @@ public class ClaimOrderPageController extends AbstractSearchPageController
 			returnEntry.setAction(ReturnAction.HOLD);
 			returnEntries.add(returnEntry);
 		});
+		returnRequest.setStatus(ReturnStatus.APPROVAL_PENDING);
 		returnRequest.setEntries(returnEntries);
 		returnRequest.setRefundDeliveryCost(false);
 		return returnRequest;

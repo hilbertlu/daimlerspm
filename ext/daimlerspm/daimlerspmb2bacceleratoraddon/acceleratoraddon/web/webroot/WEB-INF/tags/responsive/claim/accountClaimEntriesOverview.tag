@@ -17,8 +17,8 @@
             <li class="item__image"></li>
             <li class="item__info"><spring:theme code="basket.page.item"/></li>
             <li class="item__price"><spring:theme code="basket.page.price"/></li>
-            <li class="item__quantity"><spring:theme code="text.account.return.details.qty"/></li>
-            <li class="item__price"><spring:theme code="text.account.return.details.refund.amount"/></li>
+            <li class="item__quantity"><spring:theme code="text.account.claim.details.qty"/></li>
+            <li class="item__price"><spring:theme code="text.account.claim.details.claimed.amount"/></li>
         </ul>
     </li>
 
