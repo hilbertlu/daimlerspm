@@ -27,7 +27,7 @@ INSERT_UPDATE Warehouse;code[unique=true];name[lang=en];vendor(code)[default=$ve
 ;wh_ks;Kunshan PDC;
 ;wh_gz;Guangzhou PDC;
 ;wh_cd;Chengdu PDC;
-;wh_jn;Jinan PDC;
+;wh_jn;Yangzhou PDC;
 
 INSERT_UPDATE Warehouse;code[unique=true];name[lang=zh]
 ;wh_bj;北京库存中心;
@@ -35,7 +35,7 @@ INSERT_UPDATE Warehouse;code[unique=true];name[lang=zh]
 ;wh_ks;昆山库存中心;
 ;wh_gz;广州库存中心;
 ;wh_cd;成都库存中心;
-;wh_jn;济南库存中心;
+;wh_jn;扬州库存中心;
 
 INSERT_UPDATE StockLevel;productCode[unique=true];warehouse(code)[unique=true,default=default];available;inStockStatus(code);maxPreOrder[default=1];maxStockLevelHistoryCount[default=-1];overSelling[default=0];preOrder[default=0];reserved[default=0]
 ;A2228207461;wh_bj;30;notSpecified
