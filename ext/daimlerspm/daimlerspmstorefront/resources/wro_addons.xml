@@ -24,15 +24,15 @@
       <css>/_ui/addons/assistedservicestorefront/responsive/common/css/storeFinder.css</css>
       <js>/_ui/addons/accountsummaryaddon/responsive/common/js/acc.accountsummary.js</js>
       <js>/_ui/addons/secureportaladdon/responsive/common/js/secureportaladdon.js</js>
-      <js>/_ui/addons/orderselfserviceaddon/responsive/common/js/orderselfserviceaddon.js</js>
-      <js>/_ui/addons/orderselfserviceaddon/responsive/common/js/cms/cancelorderaction.js</js>
-      <js>/_ui/addons/orderselfserviceaddon/responsive/common/js/cms/returnorderaction.js</js>
-      <css>/_ui/addons/orderselfserviceaddon/responsive/common/css/orderselfserviceaddon.css</css>
       <js>/_ui/addons/daimlerspmb2bacceleratoraddon/responsive/common/js/acc.checkoutsummary.js</js>
       <js>/_ui/addons/daimlerspmb2bacceleratoraddon/responsive/common/js/acc.paymentType.js</js>
       <js>/_ui/addons/daimlerspmb2bacceleratoraddon/responsive/common/js/acc.replenishment.js</js>
       <js>/_ui/addons/daimlerspmb2bacceleratoraddon/responsive/common/js/acc.orderform.js</js>
       <js>/_ui/addons/daimlerspmb2bacceleratoraddon/responsive/common/js/acc.approval.js</js>
+      <js>/_ui/addons/orderselfserviceaddon/responsive/common/js/orderselfserviceaddon.js</js>
+      <js>/_ui/addons/orderselfserviceaddon/responsive/common/js/cms/cancelorderaction.js</js>
+      <js>/_ui/addons/orderselfserviceaddon/responsive/common/js/cms/returnorderaction.js</js>
+      <css>/_ui/addons/orderselfserviceaddon/responsive/common/css/orderselfserviceaddon.css</css>
    </group>
    <group name="addons_desktop">
       <js>/_ui/addons/smarteditaddon/shared/common/js/webApplicationInjector.js</js>
